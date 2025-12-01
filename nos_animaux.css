@@ -32,12 +32,8 @@ body {
 ======================================== */
 .main-header {
   background-color: #f5ddc4;
-  padding: 35px 0;
+  padding: 20px 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.main-header .container {
-  padding: 0;
 }
 
 /* ========================================
@@ -45,9 +41,11 @@ body {
 ======================================== */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
+  padding: 0 20px;
+  min-height: 70px;
 }
 
 /* ========================================
@@ -57,33 +55,30 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  z-index: 1001;
 }
 
-.logo img {
-  height: 70px;
-  width: auto;
+.logo-icon {
+  font-size: 2rem;
 }
 
-.logo span {
+.logo-text {
   font-size: 1.5rem;
-  font-weight: 700;             /* Bold */
+  font-weight: 700;
   color: #b95e3a;
-  font-family: 'Merriweather', serif;  /* ⬅️ Police Merriweather */
+  font-family: 'Merriweather', serif;
 }
 
 /* ========================================
-   NAVIGATION (ONGLETS)
+   NAVIGATION DESKTOP
 ======================================== */
 .nav-links {
   display: flex;
   gap: 32px;
   list-style: none;
+  align-items: center;
   margin: 0;
   padding: 0;
-}
-
-.nav-links li {
-  position: relative;
 }
 
 .nav-links a {
@@ -92,16 +87,15 @@ body {
   font-size: 1.1rem;
   text-decoration: none;
   font-family: 'Merriweather', serif;
-  display: inline-block;
   position: relative;
   transition: color 0.3s ease;
 }
 
-/* ✅ Soulignement animé au survol */
+/* Soulignement animé */
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -5px;
   left: 50%;
   width: 0;
   height: 2px;
@@ -116,4 +110,172 @@ body {
 
 .nav-links a:hover {
   color: #A0826D;
+}
+
+/* ========================================
+   BURGER MENU
+======================================== */
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #b95e3a;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* ========================================
+   RESPONSIVE MOBILE (< 768px)
+======================================== */
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 0 20px;
+    height: 70px;
+  }
+
+  .burger {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 300px;
+    background-color: #f5ddc4;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .burger.toggle .line2 {
+    opacity: 0;
+  }
+
+  .burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  /* Hero */
+  .hero {
+    height: 600px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero .btn {
+    top: 80px;
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  /* À propos */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .texte-gauche {
+    padding-right: 0;
+  }
+
+  .texte-gauche h2 {
+    font-size: 2.2rem;
+  }
+
+  .texte-gauche p {
+    font-size: 1.1rem;
+  }
+
+  .image-droite {
+    justify-content: center;
+  }
+
+  /* Animaux */
+  .animaux-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  /* Étapes */
+  .etapes-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE TABLETTE (769px - 1024px)
+======================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .animaux-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .etapes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-column:first-child {
+    grid-column: 1 / -1;
+  }
 }
