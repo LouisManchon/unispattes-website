@@ -1,0 +1,119 @@
+/* ========================================
+   IMPORT DE LA POLICE
+======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+/* ========================================
+   RESET ET BASE
+======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Merriweather', serif;  /* ⬅️ Police par défaut pour tout */
+  background-color: #c2bfbc;
+}
+
+/* ========================================
+   CONTAINER
+======================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+.main-header {
+  background-color: #f5ddc4;
+  padding: 35px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-header .container {
+  padding: 0;
+}
+
+/* ========================================
+   NAVBAR
+======================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* ========================================
+   LOGO
+======================================== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  height: 70px;
+  width: auto;
+}
+
+.logo span {
+  font-size: 1.5rem;
+  font-weight: 700;             /* Bold */
+  color: #b95e3a;
+  font-family: 'Merriweather', serif;  /* ⬅️ Police Merriweather */
+}
+
+/* ========================================
+   NAVIGATION (ONGLETS)
+======================================== */
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  color: #b95e3a;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-family: 'Merriweather', serif;
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* ✅ Soulignement animé au survol */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #A0826D;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-links a:hover {
+  color: #A0826D;
+}
