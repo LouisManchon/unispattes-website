@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: 'Merriweather', serif;  /* ⬅️ Police par défaut pour tout */
+  font-family: 'Merriweather', serif;
   background-color: #c2bfbc;
 }
 
@@ -32,12 +32,8 @@ body {
 ======================================== */
 .main-header {
   background-color: #f5ddc4;
-  padding: 35px 0;
+  padding: 20px 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.main-header .container {
-  padding: 0;
 }
 
 /* ========================================
@@ -48,6 +44,8 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: 0 20px;
+  min-height: 70px;
 }
 
 /* ========================================
@@ -57,33 +55,30 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  z-index: 1001;
 }
 
-.logo img {
-  height: 70px;
-  width: auto;
+.logo-icon {
+  font-size: 2rem;
 }
 
-.logo span {
+.logo-text {
   font-size: 1.5rem;
-  font-weight: 700;             /* Bold */
+  font-weight: 700;
   color: #b95e3a;
-  font-family: 'Merriweather', serif;  /* ⬅️ Police Merriweather */
+  font-family: 'Merriweather', serif;
 }
 
 /* ========================================
-   NAVIGATION (ONGLETS)
+   NAVIGATION DESKTOP
 ======================================== */
 .nav-links {
   display: flex;
   gap: 32px;
   list-style: none;
+  align-items: center;
   margin: 0;
   padding: 0;
-}
-
-.nav-links li {
-  position: relative;
 }
 
 .nav-links a {
@@ -92,16 +87,15 @@ body {
   font-size: 1.1rem;
   text-decoration: none;
   font-family: 'Merriweather', serif;
-  display: inline-block;
   position: relative;
   transition: color 0.3s ease;
 }
 
-/* ✅ Soulignement animé au survol */
+/* Soulignement animé */
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -5px;
   left: 50%;
   width: 0;
   height: 2px;
@@ -119,16 +113,35 @@ body {
 }
 
 /* ========================================
+   BURGER MENU
+======================================== */
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #b95e3a;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* ========================================
    SECTION HERO
 ======================================== */
 .hero {
-  height: 818px;                /* Hauteur de la section */
+  height: 818px;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('images/image-de-fond.png');  /* ⬅️ TON IMAGE */
-  background-size: cover;        /* Remplit sans déformer */
-  background-position: center;   /* Centre l'image */
-  background-repeat: no-repeat;  /* Pas de répétition */
+    url('images/image-de-fond.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,7 +155,7 @@ body {
   color: white;
   margin-bottom: 20px;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  font-family: 'Merriweather', serif;  /* ⬅️ AJOUT police */
+  font-family: 'Merriweather', serif;
   font-weight: 700;
 }
 
@@ -151,717 +164,606 @@ body {
   color: white;
   margin-bottom: 30px;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-  font-family: 'Merriweather', serif;  /* ⬅️ AJOUT police */
+  font-family: 'Merriweather', serif;
   font-weight: 300;
 }
 
-/* ========== BOUTON "VOIR LES ANIMAUX" ========== */
 .hero .btn {
-  background-color: #b95e3a;  /* ⬅️ COULEUR TERRACOTTA */
+  background-color: #b95e3a;
   color: white;
   padding: 15px 40px;
   text-decoration: none;
-  border-radius: 8px;  /* ⬅️ COINS ARRONDIS */
+  border-radius: 8px;
   font-size: 1.1rem;
   font-family: 'Merriweather', serif;
   font-weight: 700;
   transition: all 0.3s ease;
   display: inline-block;
-  text-shadow: none;  /* ⬅️ Pas d'ombre sur le texte du bouton */
-  box-shadow: 0 4px 15px rgba(185, 94, 58, 0.3);  /* ⬅️ Ombre subtile */
-    /* ⬇️ AJOUTE CES 2 LIGNES */
-  position: relative;  /* ⬅️ Active le positionnement */
-  top: 130px;          /* ⬅️ Descend le bouton de 40px */
+  box-shadow: 0 4px 15px rgba(185, 94, 58, 0.3);
+  position: relative;
+  top: 130px;
 }
 
 .hero .btn:hover {
-  background-color: #8B6F47;  /* ⬅️ Couleur au survol */
-  transform: translateY(-3px);  /* ⬅️ Effet de levée */
+  background-color: #8B6F47;
+  transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(139, 111, 71, 0.4);
 }
 
-/* ================================================
+/* ========================================
    SECTION À PROPOS
-=============================================== */
-
+======================================== */
 .about-section {
-    padding: 100px 20px;
-    background-color: #F5EBE0;
+  padding: 100px 20px;
+  background-color: #F5EBE0;
 }
 
 .about-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 0.7fr;  /* ⬅️ TEXTE plus large, IMAGE plus petite */
-    gap: 100px;  /* ⬅️ Plus d'espace entre les deux */
-    max-width: 1400px;  /* ⬅️ Container plus large */
-    margin: 0 auto;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 100px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: center;
 }
 
-/* ========== TEXTE À GAUCHE ========== */
 .texte-gauche {
-    padding-right: 40px;  /* ⬅️ Espace à droite du texte */
+  padding-right: 40px;
 }
 
 .texte-gauche h2 {
-    font-family: 'Merriweather', serif;
-    font-size: 3.2rem;  /* ⬅️ Plus grand (était 2.8rem) */
-    font-weight: 700;
-    color: #8B6F47;
-    margin-bottom: 35px;  /* ⬅️ Plus d'espace sous le titre */
-    line-height: 1.2;
+  font-family: 'Merriweather', serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #8B6F47;
+  margin-bottom: 35px;
+  line-height: 1.2;
 }
 
 .texte-gauche p {
-    font-family: 'Merriweather', serif;
-    font-size: 1.25rem;  /* ⬅️ Plus grand (était 1.15rem) */
-    font-weight: 400;
-    line-height: 2;  /* ⬅️ Plus d'espace entre les lignes (était 1.9) */
-    color: #5D4E37;
-    margin-bottom: 25px;  /* ⬅️ Plus d'espace entre les paragraphes */
+  font-family: 'Merriweather', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 2;
+  color: #5D4E37;
+  margin-bottom: 25px;
 }
 
 .texte-gauche p strong {
-    font-weight: 700;
-    color: #8B6F47;
+  font-weight: 700;
+  color: #8B6F47;
 }
 
-/* ========== IMAGE À DROITE ========== */
 .image-droite {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .image-droite img {
-    width: 100%;
-    max-width: 400px;  /* ⬅️ Plus petite (était 550px) */
-    height: auto;
-    object-fit: cover;
-    border-radius: 13px;  /* ⬅️ Coins arrondis doux */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 13px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* ========================================
    SECTION ANIMAUX À L'ADOPTION
 ======================================== */
-
 .adoption-section {
-    background-color: #f5ddc4;  /* ⬅️ Fond beige clair */
-    padding: 100px 0;
+  background-color: #f5ddc4;
+  padding: 100px 0;
 }
 
-/* ========== EN-TÊTE (Titre + Sous-titre) ========== */
 .adoption-header {
-    text-align: center;
-    margin-bottom: 80px;
+  text-align: center;
+  margin-bottom: 80px;
 }
 
 .adoption-header h2 {
-    font-family: 'Merriweather', serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #8B6F47;
-    margin-bottom: 15px;
+  font-family: 'Merriweather', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #8B6F47;
+  margin-bottom: 15px;
 }
 
 .adoption-header p {
-    font-family: 'Merriweather', serif;
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: #5D4E37;
+  font-family: 'Merriweather', serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #5D4E37;
 }
 
-/* ========== GRILLE DES 3 ANIMAUX ========== */
 .animaux-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* ⬅️ 3 colonnes égales */
-    gap: 50px;  /* ⬅️ Espace entre les cartes */
-    max-width: 1200px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* ========== CARTE INDIVIDUELLE ========== */
 .animal-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-/* ========== IMAGE RONDE ========== */
 .animal-image-rond {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;  /* ⬅️ Forme ronde */
-    overflow: hidden;
-    margin-bottom: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .animal-image-rond img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  /* ⬅️ Image bien cadrée */
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .animal-image-rond:hover img {
-    transform: scale(1.05);  /* ⬅️ Léger zoom au survol */
+  transform: scale(1.05);
 }
 
-/* ========== MINI CARTE INFO (Nom + Âge + Sexe) ========== */
 .animal-info-card {
-    background-color: white;
-    padding: 20px 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 25px;
-    width: 100%;
-    max-width: 280px;
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 280px;
 }
 
 .animal-info-card h3 {
-    font-family: 'Merriweather', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #8B6F47;
-    margin-bottom: 8px;
+  font-family: 'Merriweather', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #8B6F47;
+  margin-bottom: 8px;
 }
 
 .animal-info-card p {
-    font-family: 'Merriweather', serif;
-    font-size: 1rem;
-    font-weight: 300;
-    color: #5D4E37;
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #5D4E37;
 }
 
-/* ========== BOUTON "EN SAVOIR PLUS" ========== */
 .btn-adoption {
-    display: inline-block;
-    background-color: #b95e3a;  /* ⬅️ Couleur terracotta */
-    color: white;
-    padding: 12px 35px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-family: 'Merriweather', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  background-color: #b95e3a;
+  color: white;
+  padding: 12px 35px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-adoption:hover {
-    background-color: #8B6F47;  /* ⬅️ Change au survol */
-    transform: translateY(-2px);  /* ⬅️ Léger effet de levée */
+  background-color: #8B6F47;
+  transform: translateY(-2px);
 }
 
-/* ================================================
+/* ========================================
    SECTION COMMENT ADOPTER
-=============================================== */
-
+======================================== */
 .comment-adopter-section {
-    background-color: #F5EBE0;  /* ⬅️ Fond beige (comme À propos) */
-    padding: 100px 20px;
+  background-color: #F5EBE0;
+  padding: 100px 20px;
 }
 
-/* ========== EN-TÊTE (Titre) ========== */
 .comment-adopter-header {
-    text-align: center;
-    margin-bottom: 80px;
+  text-align: center;
+  margin-bottom: 80px;
 }
 
 .comment-adopter-header h2 {
-    font-family: 'Merriweather', serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #8B6F47;
+  font-family: 'Merriweather', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #8B6F47;
 }
 
-/* ========== GRILLE DES 4 ÉTAPES ========== */
 .etapes-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);  /* ⬅️ 4 colonnes égales */
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto 60px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
 }
 
-/* ========== CARTE INDIVIDUELLE ========== */
 .etape-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
 }
 
-/* ========== ICÔNE AVEC CERCLE TERRACOTTA ========== */
 .etape-icone {
-    width: 80px;
-    height: 80px;
-    background-color: #b95e3a;  /* ⬅️ Fond terracotta */
-    border-radius: 50%;  /* ⬅️ Forme ronde */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    box-shadow: 0 4px 10px rgba(185, 94, 58, 0.3);
-    border: 3px solid white;  /* ⬅️ Bordure blanche */
+  width: 80px;
+  height: 80px;
+  background-color: #b95e3a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 10px rgba(185, 94, 58, 0.3);
+  border: 3px solid white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .etape-icone svg {
-    width: 40px;
-    height: 40px;
-    color: white;  /* ⬅️ Patte blanche */
+  width: 40px;
+  height: 40px;
+  color: white;
 }
 
 .etape-card:hover .etape-icone {
-    transform: translateY(-5px);  /* ⬅️ Légère levée au survol */
-    box-shadow: 0 12px 30px rgba(185, 94, 58, 0.35);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(185, 94, 58, 0.35);
 }
 
-/* ========== NUMÉRO D'ÉTAPE ========== */
 .etape-numero {
-    position: absolute;
-    top: -5px;
-    right: 35%;
-    width: 35px;
-    height: 35px;
-    background-color: #8B6F47;  /* ⬅️ Badge marron */
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Merriweather', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: -5px;
+  right: 35%;
+  width: 35px;
+  height: 35px;
+  background-color: #8B6F47;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* ========== TEXTE ========== */
 .etape-card h3 {
-    font-family: 'Merriweather', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #8B6F47;
-    margin-bottom: 12px;
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #8B6F47;
+  margin-bottom: 12px;
 }
 
 .etape-card p {
-    font-family: 'Merriweather', serif;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.6;
-    color: #5D4E37;
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #5D4E37;
 }
 
-/* ========== BOUTON FINAL ========== */
 .comment-adopter-footer {
-    text-align: center;
+  text-align: center;
 }
 
 .btn-voir-animaux {
-    display: inline-block;
-    background-color: #b95e3a;
-    color: white;
-    padding: 15px 45px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-family: 'Merriweather', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 6px 20px rgba(185, 94, 58, 0.3);
+  display: inline-block;
+  background-color: #b95e3a;
+  color: white;
+  padding: 15px 45px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Merriweather', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 20px rgba(185, 94, 58, 0.3);
 }
 
 .btn-voir-animaux:hover {
-    background-color: #8B6F47;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(139, 111, 71, 0.4);
-}
-
-/* ========== RESPONSIVE (Tablettes et mobiles) ========== */
-@media (max-width: 992px) {
-    .etapes-grid {
-        grid-template-columns: repeat(2, 1fr);  /* ⬅️ 2 colonnes sur tablette */
-        gap: 50px;
-    }
-}
-
-@media (max-width: 576px) {
-    .etapes-grid {
-        grid-template-columns: 1fr;  /* ⬅️ 1 colonne sur mobile */
-        gap: 60px;
-    }
+  background-color: #8B6F47;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(139, 111, 71, 0.4);
 }
 
 /* ========================================
    FOOTER
 ======================================== */
 .main-footer {
-    background-color: #8B6F47;  /* ⬅️ Marron chaud */
-    color: #F5EBE0;
-    padding: 80px 0 0 0;
+  background-color: #8B6F47;
+  color: #F5EBE0;
+  padding: 80px 0 0 0;
 }
 
-/* ========== CONTENU PRINCIPAL (3 COLONNES) ========== */
 .footer-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;  /* ⬅️ 3 colonnes égales */
-    gap: 60px;
-    margin-bottom: 50px;
-    align-items: start;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+  align-items: start;
 }
 
-/* ========== COLONNE ========== */
 .footer-column h3 {
-    font-family: 'Merriweather', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #F5EBE0;
-    margin-bottom: 20px;  /* ⬅️ Même espacement partout */
-    min-height: 45px;     /* ⬅️ Même hauteur que le logo */
-    display: flex;
-    align-items: center;  /* ⬅️ Centre verticalement le texte */
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #F5EBE0;
+  margin-bottom: 20px;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
 }
 
-/* ========== LOGO FOOTER ========== */
 .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    min-height: 45px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  min-height: 45px;
 }
 
-.footer-logo img {
-    height: 60px;
-    width: auto;
+.footer-logo .logo-icon {
+  font-size: 2rem;
 }
 
-.footer-logo span {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #F5EBE0;
-    font-family: 'Merriweather', serif;
+.footer-logo .logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #F5EBE0;
+  font-family: 'Merriweather', serif;
 }
 
-/* ========== DESCRIPTION ========== */
 .footer-description {
-    font-family: 'Merriweather', serif;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.8;
-    color: #E8D5C4;
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #E8D5C4;
 }
 
-/* ========== LIENS RAPIDES ========== */
 .footer-links {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .footer-links li {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .footer-links a {
-    font-family: 'Merriweather', serif;
-    font-size: 1rem;
-    font-weight: 300;
-    color: #E8D5C4;
-    text-decoration: none;
-    transition: color 0.3s ease, padding-left 0.3s ease;
-    display: inline-block;
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #E8D5C4;
+  text-decoration: none;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+  display: inline-block;
 }
 
 .footer-links a:hover {
-    color: #F5EBE0;
-    padding-left: 5px;  /* ⬅️ Léger décalage au survol */
+  color: #F5EBE0;
+  padding-left: 5px;
 }
 
-/* ========== CONTACT ========== */
 .footer-contact {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .footer-contact li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 18px;
-    font-family: 'Merriweather', serif;
-    font-size: 0.95rem;
-    font-weight: 300;
-    color: #E8D5C4;
-    line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+  font-family: 'Merriweather', serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: #E8D5C4;
+  line-height: 1.6;
 }
 
 .footer-contact svg {
-    width: 20px;
-    height: 20px;
-    color: #F5DDC4;
-    flex-shrink: 0;
-    margin-top: 2px;
+  width: 20px;
+  height: 20px;
+  color: #F5DDC4;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
-/* ========== RÉSEAUX SOCIAUX ========== */
 .footer-social {
-    display: flex;
-    gap: 15px;
-    margin-top: 25px;
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
 }
 
 .footer-social a {
-    width: 40px;
-    height: 40px;
-    background-color: #A0826D;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 40px;
+  height: 40px;
+  background-color: #A0826D;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-social a:hover {
-    background-color: #b95e3a;
-    transform: translateY(-3px);
+  background-color: #b95e3a;
+  transform: translateY(-3px);
 }
 
 .footer-social svg {
-    width: 20px;
-    height: 20px;
-    color: #F5EBE0;
+  width: 20px;
+  height: 20px;
+  color: #F5EBE0;
 }
 
-/* ========== COPYRIGHT ========== */
 .footer-bottom {
-    border-top: 1px solid rgba(245, 235, 224, 0.2);
-    padding: 25px 0;
-    text-align: center;
+  border-top: 1px solid rgba(245, 235, 224, 0.2);
+  padding: 25px 0;
+  text-align: center;
 }
 
 .footer-bottom p {
-    font-family: 'Merriweather', serif;
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: #E8D5C4;
-    margin: 0;
+  font-family: 'Merriweather', serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #E8D5C4;
+  margin: 0;
 }
 
 /* ========================================
-   RESPONSIVE - MEDIA QUERIES
+   RESPONSIVE MOBILE (< 768px)
 ======================================== */
-
-/* ========== GRANDES TABLETTES - iPad Pro 12.9" (max 1024px) ========== */
-@media (max-width: 1024px) {
-    .navbar {
-        padding: 0 15px;
-    }
-
-    .nav-links {
-        gap: 25px;  /* ⬅️ Confortable pour iPad Pro */
-    }
-
-    .nav-links a {
-        font-size: 1rem;
-    }
-}
-
-/* ========== TABLETTES MOYENNES - iPad/iPad Air (max 900px) ========== */
-@media (max-width: 900px) {
-    .nav-links {
-        gap: 18px;  /* ⬅️ Ajusté pour iPad standard */
-    }
-
-    .nav-links a {
-        font-size: 0.95rem;
-    }
-
-    /* Hero → Texte plus petit */
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    /* À propos → 1 seule colonne */
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .texte-gauche {
-        padding-right: 0;
-    }
-
-    .texte-gauche h2 {
-        font-size: 2.5rem;
-    }
-
-    .image-droite {
-        justify-content: center;
-    }
-
-    .image-droite img {
-        max-width: 100%;
-    }
-
-    /* Animaux adoption → 2 colonnes */
-    .animaux-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-    }
-
-    /* Comment adopter → 2 colonnes */
-    .etapes-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 50px;
-    }
-
-    /* Footer → 2 colonnes */
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-    }
-
-    .footer-column:first-child {
-        grid-column: 1 / -1;
-    }
-}
-
-/* ========== TABLETTES PETITES - Kindle Fire (max 820px) ========== */
-@media (max-width: 820px) {
-    .nav-links {
-        gap: 15px;  /* ⬅️ Serré pour Kindle */
-    }
-
-    .nav-links a {
-        font-size: 0.9rem;
-    }
-}
-
-/* ========== TABLETTES PORTRAIT (max 768px) ========== */
 @media (max-width: 768px) {
-    /* Menu vertical pour petites tablettes */
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
 
-    .nav-links {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
+  .navbar {
+    padding: 0 20px;
+    height: 70px;
+  }
 
-    .nav-links a {
-        font-size: 1.05rem;
-    }
+  .burger {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 300px;
+    background-color: #f5ddc4;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .burger.toggle .line2 {
+    opacity: 0;
+  }
+
+  .burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  /* Hero */
+  .hero {
+    height: 600px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero .btn {
+    top: 80px;
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  /* À propos */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .texte-gauche {
+    padding-right: 0;
+  }
+
+  .texte-gauche h2 {
+    font-size: 2.2rem;
+  }
+
+  .texte-gauche p {
+    font-size: 1.1rem;
+  }
+
+  .image-droite {
+    justify-content: center;
+  }
+
+  /* Animaux */
+  .animaux-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  /* Étapes */
+  .etapes-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
-/* ========== MOBILES (max 576px) ========== */
-@media (max-width: 576px) {
+/* ========================================
+   RESPONSIVE TABLETTE (769px - 1024px)
+======================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
 
-    /* Header → Menu vertical */
-    .navbar {
-        flex-direction: column;
-        gap: 20px;
-    }
+  .nav-links {
+    gap: 20px;
+  }
 
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
+  .nav-links a {
+    font-size: 1rem;
+  }
 
-    /* Hero → Texte encore plus petit */
-    .hero {
-        height: 600px;
-        padding: 0 15px;
-    }
+  .animaux-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .hero h1 {
-        font-size: 1.8rem;
-    }
+  .etapes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .hero p {
-        font-size: 0.95rem;
-    }
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
 
-    .hero .btn {
-        padding: 12px 30px;
-        font-size: 1rem;
-        top: 80px;
-    }
-
-    /* À propos → Texte plus petit */
-    .texte-gauche h2 {
-        font-size: 2rem;
-    }
-
-    .texte-gauche p {
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-
-    /* Animaux adoption → 1 seule colonne */
-    .animaux-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .animal-image-rond {
-        width: 220px;
-        height: 220px;
-    }
-
-    /* Comment adopter → 1 colonne */
-    .etapes-grid {
-        grid-template-columns: 1fr;
-        gap: 60px;
-    }
-
-    .comment-adopter-header h2 {
-        font-size: 2rem;
-    }
-
-    /* Footer → 1 colonne */
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .footer-column:first-child {
-        grid-column: 1;
-    }
-}
-
-/* ========== TRÈS PETITS ÉCRANS - iPhone SE (max 375px) ========== */
-@media (max-width: 375px) {
-
-    .hero h1 {
-        font-size: 1.5rem;
-    }
-
-    .texte-gauche h2 {
-        font-size: 1.7rem;
-    }
-
-    .animal-image-rond {
-        width: 180px;
-        height: 180px;
-    }
-
-    .nav-links a {
-        font-size: 1rem;
-    }
-
-    .container {
-        padding: 0 15px;
-    }
+  .footer-column:first-child {
+    grid-column: 1 / -1;
+  }
 }
