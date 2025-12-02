@@ -31,7 +31,7 @@ body {
    HEADER
 ======================================== */
 .main-header {
-  background-color: #f5ddc4;
+  background-color: #F5EBE0; /* ⬅️ TA COULEUR */
   padding: 20px 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -131,10 +131,10 @@ body {
 }
 
 /* ========================================
-   🆕 HERO ANIMAUX (simple)
+   🆕 HERO ANIMAUX
 ======================================== */
 .hero-animaux {
-  background: linear-gradient(135deg, #f5ddc4 0%, #e8cdb0 100%);
+  background: linear-gradient(135deg, #f5ddc4); /* ⬅️ TA COULEUR */
   padding: 60px 0;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -147,14 +147,14 @@ body {
 }
 
 /* ========================================
-   🆕 SECTION ANIMAUX (FILTRES + GRILLE)
+   🆕 SECTION ANIMAUX
 ======================================== */
 .animaux-section {
   padding: 60px 0;
-  background-color: #c2bfbc;
+  background-color: #f5ddc4; /* ⬅️ TA COULEUR */
 }
 
-/* Layout 2 colonnes : Filtres (gauche) + Grille (droite) */
+/* Layout 2 colonnes : Filtres (280px) + Grille (reste) */
 .content-wrapper {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -171,7 +171,7 @@ body {
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   position: sticky;
-  top: 120px;
+  top: 120px; /* ⬅️ COLLE EN HAUT LORS DU SCROLL */
 }
 
 .filtres-sidebar h3 {
@@ -183,6 +183,13 @@ body {
 
 .filtre-group {
   margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.filtre-group:last-of-type {
+  border-bottom: none;
+  margin-bottom: 20px;
 }
 
 .filtre-group h4 {
@@ -192,7 +199,7 @@ body {
   font-weight: 600;
 }
 
-/* Checkboxes */
+/* Checkboxes et Radios */
 .checkbox-label,
 .radio-label {
   display: flex;
@@ -202,6 +209,7 @@ body {
   cursor: pointer;
   font-size: 1rem;
   color: #5a4a42;
+  transition: color 0.2s ease;
 }
 
 .checkbox-label input[type="checkbox"],
@@ -239,58 +247,17 @@ body {
 }
 
 /* ========================================
-   🆕 CONTENU ANIMAUX (DROITE)
+   🆕 GRILLE ANIMAUX (3 COLONNES)
 ======================================== */
 .animaux-content {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-/* Barre de recherche */
-.search-bar {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background-color: white;
-  padding: 15px 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.search-bar svg {
-  color: #8b5a3c;
-  flex-shrink: 0;
-}
-
-.search-bar input {
-  border: none;
-  outline: none;
-  font-size: 1rem;
   width: 100%;
-  font-family: 'Merriweather', serif;
-  color: #5a4a42;
 }
 
-.search-bar input::placeholder {
-  color: #a0826d;
-}
-
-/* Titre section */
-.section-title {
-  font-size: 2rem;
-  color: #b95e3a;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-/* ========================================
-   🆕 GRILLE ANIMAUX
-======================================== */
 .animaux-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* ⬅️ 3 COLONNES ÉGALES */
   gap: 30px;
+  width: 100%;
 }
 
 /* ========================================
@@ -303,6 +270,8 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .animal-card:hover {
@@ -310,91 +279,89 @@ body {
   box-shadow: 0 8px 25px rgba(139, 90, 60, 0.2);
 }
 
-/* Image */
+/* Image - Hauteur fixe pour alignement */
 .card-image {
-  position: relative;
   width: 100%;
-  height: 250px;
+  height: 280px; /* ⬅️ HAUTEUR FIXE = ALIGNEMENT PARFAIT */
   overflow: hidden;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* ⬅️ REMPLIT SANS DÉFORMER */
   transition: transform 0.5s ease;
 }
 
 .animal-card:hover .card-image img {
-  transform: scale(1.1);
+  transform: scale(1.1); /* ⬅️ ZOOM AU SURVOL */
 }
 
-/* Badge (Disponible / Réservé) */
-.badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.badge-disponible {
-  background-color: #4caf50;
-}
-
-.badge-reserve {
-  background-color: #ff9800;
-}
-
-/* Contenu */
-.card-content {
+/* ========================================
+   INFO CARTE ANIMAL
+======================================== */
+.card-info {
   padding: 20px;
+  text-align: center;
+  background-color: white;
 }
 
-.card-content h3 {
+.card-info h3 {
+  color: #b95e3a;
   font-size: 1.4rem;
-  color: #b95e3a;
-  margin-bottom: 8px;
   font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-.card-content p {
+.sexe-icon {
+  font-size: 1.2rem;
+  color: #A0826D;
+}
+
+.animal-details {
+  color: #666;
   font-size: 1rem;
-  color: #5a4a42;
   margin-bottom: 15px;
+  font-weight: 400;
 }
 
-/* Bouton "En savoir +" */
-.btn-savoir {
-  width: 100%;
-  padding: 12px;
-  background-color: #f5ddc4;
-  color: #b95e3a;
-  border: 2px solid #b95e3a;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Merriweather', serif;
-}
-
-.btn-savoir:hover {
+/* ========================================
+   BOUTON "EN SAVOIR PLUS"
+======================================== */
+.btn-savoir-plus {
+  display: inline-block;
   background-color: #b95e3a;
   color: white;
-  transform: translateY(-2px);
+  padding: 10px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(185, 94, 58, 0.2);
 }
+
+.btn-savoir-plus:hover {
+  background-color: #A0826D;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(185, 94, 58, 0.3);
+}
+
 
 /* ========================================
    RESPONSIVE MOBILE (< 768px)
 ======================================== */
 @media (max-width: 768px) {
 
+  /* NAVBAR */
   .navbar {
     padding: 0 20px;
     height: 70px;
@@ -412,7 +379,7 @@ body {
     height: 100vh;
     width: 70%;
     max-width: 300px;
-    background-color: #f5ddc4;
+    background-color: #f5ddc4; /* ⬅️ TA COULEUR */
     flex-direction: column;
     justify-content: center;
     gap: 40px;
@@ -449,88 +416,33 @@ body {
     font-size: 1.2rem;
   }
 
-  /* 🆕 Hero Animaux */
+  /* HERO ANIMAUX */
+  .hero-animaux {
+    padding: 50px 0;
+  }
+
   .hero-animaux h1 {
     font-size: 2rem;
   }
 
-  /* 🆕 Layout 1 colonne */
+  /* LAYOUT 1 COLONNE (filtres au-dessus) */
   .content-wrapper {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
   .filtres-sidebar {
-    position: static;
+    position: static; /* ⬅️ Plus sticky en mobile */
   }
 
-  /* 🆕 Grille 1 colonne */
+  /* GRILLE 1 COLONNE */
   .animaux-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* ⬅️ 1 COLONNE */
     gap: 25px;
   }
 
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  /* Hero */
-  .hero {
-    height: 600px;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .hero .btn {
-    top: 80px;
-    padding: 12px 30px;
-    font-size: 1rem;
-  }
-
-  /* À propos */
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-
-  .texte-gauche {
-    padding-right: 0;
-  }
-
-  .texte-gauche h2 {
-    font-size: 2.2rem;
-  }
-
-  .texte-gauche p {
-    font-size: 1.1rem;
-  }
-
-  .image-droite {
-    justify-content: center;
-  }
-
-  /* Animaux */
-  .animaux-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-
-  /* Étapes */
-  .etapes-grid {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-
-  /* Footer */
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .card-image {
+    height: 250px;
   }
 }
 
@@ -547,15 +459,15 @@ body {
     font-size: 1rem;
   }
 
-  /* 🆕 Layout tablette */
+  /* LAYOUT TABLETTE */
   .content-wrapper {
     grid-template-columns: 250px 1fr;
     gap: 30px;
   }
 
-  /* 🆕 Grille 2 colonnes */
+  /* GRILLE 2 COLONNES */
   .animaux-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* ⬅️ 2 COLONNES */
     gap: 25px;
   }
 
@@ -563,15 +475,29 @@ body {
     font-size: 2.5rem;
   }
 
-  .etapes-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .card-image {
+    height: 260px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE GRAND ÉCRAN (> 1400px)
+======================================== */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
   }
 
-  .footer-content {
-    grid-template-columns: 1fr 1fr;
+  .content-wrapper {
+    grid-template-columns: 300px 1fr;
+    gap: 50px;
   }
 
-  .footer-column:first-child {
-    grid-column: 1 / -1;
+  .animaux-grid {
+    gap: 35px;
+  }
+
+  .card-image {
+    height: 300px;
   }
 }
