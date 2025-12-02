@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: 'Merriweather', serif;  /* ⬅️ Police par défaut pour tout */
+  font-family: 'Merriweather', serif;
   background-color: #c2bfbc;
 }
 
@@ -91,7 +91,6 @@ body {
   transition: color 0.3s ease;
 }
 
-/* Soulignement animé */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -129,6 +128,266 @@ body {
   background-color: #b95e3a;
   border-radius: 3px;
   transition: all 0.3s ease;
+}
+
+/* ========================================
+   🆕 HERO ANIMAUX (simple)
+======================================== */
+.hero-animaux {
+  background: linear-gradient(135deg, #f5ddc4 0%, #e8cdb0 100%);
+  padding: 60px 0;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.hero-animaux h1 {
+  font-size: 3rem;
+  color: #b95e3a;
+  font-weight: 700;
+}
+
+/* ========================================
+   🆕 SECTION ANIMAUX (FILTRES + GRILLE)
+======================================== */
+.animaux-section {
+  padding: 60px 0;
+  background-color: #c2bfbc;
+}
+
+/* Layout 2 colonnes : Filtres (gauche) + Grille (droite) */
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ========================================
+   🆕 FILTRES SIDEBAR (GAUCHE)
+======================================== */
+.filtres-sidebar {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 120px;
+}
+
+.filtres-sidebar h3 {
+  font-size: 1.5rem;
+  color: #b95e3a;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.filtre-group {
+  margin-bottom: 30px;
+}
+
+.filtre-group h4 {
+  font-size: 1.1rem;
+  color: #8b5a3c;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Checkboxes */
+.checkbox-label,
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #5a4a42;
+}
+
+.checkbox-label input[type="checkbox"],
+.radio-label input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #b95e3a;
+}
+
+.checkbox-label:hover,
+.radio-label:hover {
+  color: #b95e3a;
+}
+
+/* Bouton Rechercher */
+.btn-rechercher {
+  width: 100%;
+  padding: 14px;
+  background-color: #b95e3a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Merriweather', serif;
+}
+
+.btn-rechercher:hover {
+  background-color: #8b5a3c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(185, 94, 58, 0.3);
+}
+
+/* ========================================
+   🆕 CONTENU ANIMAUX (DROITE)
+======================================== */
+.animaux-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Barre de recherche */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.search-bar svg {
+  color: #8b5a3c;
+  flex-shrink: 0;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 100%;
+  font-family: 'Merriweather', serif;
+  color: #5a4a42;
+}
+
+.search-bar input::placeholder {
+  color: #a0826d;
+}
+
+/* Titre section */
+.section-title {
+  font-size: 2rem;
+  color: #b95e3a;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* ========================================
+   🆕 GRILLE ANIMAUX
+======================================== */
+.animaux-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* ========================================
+   🆕 CARTE ANIMAL
+======================================== */
+.animal-card {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.animal-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(139, 90, 60, 0.2);
+}
+
+/* Image */
+.card-image {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.animal-card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+/* Badge (Disponible / Réservé) */
+.badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-disponible {
+  background-color: #4caf50;
+}
+
+.badge-reserve {
+  background-color: #ff9800;
+}
+
+/* Contenu */
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
+  font-size: 1.4rem;
+  color: #b95e3a;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: #5a4a42;
+  margin-bottom: 15px;
+}
+
+/* Bouton "En savoir +" */
+.btn-savoir {
+  width: 100%;
+  padding: 12px;
+  background-color: #f5ddc4;
+  color: #b95e3a;
+  border: 2px solid #b95e3a;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Merriweather', serif;
+}
+
+.btn-savoir:hover {
+  background-color: #b95e3a;
+  color: white;
+  transform: translateY(-2px);
 }
 
 /* ========================================
@@ -188,6 +447,31 @@ body {
 
   .logo-text {
     font-size: 1.2rem;
+  }
+
+  /* 🆕 Hero Animaux */
+  .hero-animaux h1 {
+    font-size: 2rem;
+  }
+
+  /* 🆕 Layout 1 colonne */
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .filtres-sidebar {
+    position: static;
+  }
+
+  /* 🆕 Grille 1 colonne */
+  .animaux-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
   }
 
   /* Hero */
@@ -263,8 +547,20 @@ body {
     font-size: 1rem;
   }
 
+  /* 🆕 Layout tablette */
+  .content-wrapper {
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+  }
+
+  /* 🆕 Grille 2 colonnes */
   .animaux-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .hero-animaux h1 {
+    font-size: 2.5rem;
   }
 
   .etapes-grid {

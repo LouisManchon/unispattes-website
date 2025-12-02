@@ -30,3 +30,160 @@
             </div>
         </nav>
     </header>
+
+
+    <!-- ========== HERO SECTION ========== -->
+     <section class="hero-animaux">
+        <div class="container">
+            <h1>Nos animaux</h1>
+        </div>
+     </section>
+
+    <!-- ========================================
+     FILTRES + GRILLE ANIMAUX
+    ======================================== -->
+
+    <section class="animaux-section">
+        <div class="container">
+
+            <!-- LAYOUT 2 COLONNES : FILTRES (gauche) + GRILLE (droite) -->
+            <div class="content-wrapper">
+
+                <!-- ========== COLONNE GAUCHE : FILTRES ========== -->
+                <aside class="filtres-sidebar">
+                    <h3>Filtrer par :</h3>
+
+                    <!-- Filtre Espèce -->
+                    <div class="filtre-group">
+                        <h4>🐾 Espèce</h4>
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked data-filter="chien">
+                            <span>Chiens (5)</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked data-filter="chat">
+                            <span>Chats (4)</span>
+                        </label>
+                    </div>
+
+                    <!-- Filtre Sexe -->
+                    <div class="filtre-group">
+                        <h4>⚥ Sexe</h4>
+                        <label class="radio-label">
+                            <input type="radio" name="sexe" value="tous" checked>
+                            <span>Tous</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="sexe" value="male">
+                            <span>Mâle</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="sexe" value="femelle">
+                            <span>Femelle</span>
+                        </label>
+                    </div>
+
+                    <!-- Filtre Âge -->
+                    <div class="filtre-group">
+                        <h4>🎂 Âge</h4>
+                        <label class="radio-label">
+                            <input type="radio" name="age" value="tous" checked>
+                            <span>Tous</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="age" value="junior">
+                            <span>junior (moins de 2 ans)</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="age" value="adulte">
+                            <span>Adulte (2 à 7 ans)</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="age" value="senior">
+                            <span>Senior (plus de 7 ans)</span>
+                        </label>
+                    </div>
+
+                    <!-- Bouton Rechercher -->
+                    <button class="btn-rechercher">Rechercher</button>
+                </aside>
+
+                <!-- ========== COLONNE DROITE : GRILLE ========== -->
+                <div class="animaux-content">
+
+                    <!-- Barre de recherche -->
+                    <div class="search-bar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="text" placeholder="Rechercher par nom...">
+                    </div>
+
+                    <!-- Titre -->
+                    <h2 class="section-title">Nos adorables pensionnaires</h2>
+
+                    <!-- Grille des animaux -->
+                    <div class="animaux-grid">
+
+                        <!-- CARTE 1 : Max -->
+                        <div class="animal-card" data-espece="chien" data-sexe="male" data-age="adulte">
+                            <div class="card-image">
+                                <img src="images/maxchien.png" alt="Max">
+                            </div>
+
+                        <!-- CARTE 2 : Luna -->
+                        <div class="animal-card" data-espece="chat" data-sexe="femelle" data-age="adulte">
+                            <div class="card-image">
+                                <img src="images/lunachat.png" alt="Luna">
+                            </div>
+
+                        <!-- CARTE 3 : Rocky -->
+                        <div class="animal-card" data-espece="chien" data-sexe="male" data-age="junior">
+                            <div class="card-image">
+                                <img src="images/rockychien.png" alt="Rocky">
+                            </div>
+
+                        <!-- CARTE 4 : Bella -->
+                        <div class="animal-card" data-espece="chat" data-sexe="femelle" data-age="senior">
+                            <div class="card-image">
+                                <img src="images/bellachat.png" alt="Bella">
+                            </div>
+
+                        <!-- CARTE 5 : Charlie -->
+                        <div class="animal-card" data-espece="chien" data-sexe="male" data-age="junior">
+                            <div class="card-image">
+                                <img src="images/charliechien.png" alt="Charlie">
+                            </div>
+
+                        <!-- CARTE 6 : Daisy -->
+                        <div class="animal-card" data-espece="chat" data-sexe="femelle" data-age="senior">
+                            <div class="card-image">
+                                <img src="images/daisychat.png" alt="Daisy">
+                            </div>
+
+                        <!-- CARTE 7 : Lola -->
+                        <div class="animal-card" data-espece="chien" data-sexe="femelle" data-age="senior">
+                            <div class="card-image">
+                                <img src="images/lolachien.png" alt="Lola">
+                            </div>
+
+                        <!-- CARTE 8 : Simba -->
+                        <div class="animal-card" data-espece="chien" data-sexe="male" data-age="junior">
+                            <div class="card-image">
+                                <img src="images/simbachien.png" alt="Simba">
+                            </div>
+
+                        <!-- CARTE 9 : Nala -->
+                        <div class="animal-card" data-espece="chat" data-sexe="femelle" data-age="junior">
+                            <div class="card-image">
+                                <img src="images/nalachat.png" alt="Nala">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
