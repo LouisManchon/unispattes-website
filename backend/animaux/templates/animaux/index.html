@@ -17,10 +17,10 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="nos_animaux.html">Nos animaux</a></li>           <!-- ✅ .html -->
-                <li><a href="index.html#apropos">À propos</a></li>              <!-- ✅ .html -->
-                <li><a href="index.html#contact">Contact</a></li>               <!-- ✅ .html -->
+                <li><a href="{% url 'animaux:accueil' %}">Accueil</a></li>
+                <li><a href="{% url 'animaux:nos_animaux' %}">Nos animaux</a></li>
+                <li><a href="{% url 'animaux:accueil' %}#apropos">À propos</a></li>
+                <li><a href="{% url 'animaux:accueil' %}#contact">Contact</a></li>
             </ul>
 
             <div class="burger">
