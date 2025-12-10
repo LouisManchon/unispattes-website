@@ -113,20 +113,15 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
+STATIC_URL = '/static/'
 
-STATIC_URL = 'static/'
-
-# Dossiers où Django cherche les fichiers CSS/JS/images
+# ⬇️ GARDE UNIQUEMENT CETTE LIGNE ⬇️
 STATICFILES_DIRS = [
-    BASE_DIR.parent / 'frontend' / 'css',     # Tes CSS
-    BASE_DIR.parent / 'frontend' / 'js',      # Tes JS
-    BASE_DIR.parent / 'frontend' / 'assets',  # Tes images
+    BASE_DIR / 'animaux' / 'static',
 ]
 
-# Dossier où collecter tous les fichiers statiques (pour la production)
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Configuration des médias (uploads futurs)
+# Media files (uploads futurs)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR.parent / 'frontend' / 'assets'
+MEDIA_ROOT = BASE_DIR / 'media'  # ⬅️ Change aussi ça

@@ -5,14 +5,14 @@ app_name = 'animaux'
 
 urlpatterns = [
     # Page d'accueil
-    path('', views.accueil, name='accueil'),
+    path('', views.index, name='accueil'),
 
     # Liste des animaux
     path('nos-animaux/', views.nos_animaux, name='nos_animaux'),
 
     # Détails d'un animal
-    path('animal/<int:id>/', views.detail_animal, name='detail_animal'),
+    # path('animal/<int:id>/', views.detail_animal, name='detail_animal'),
 
     # Formulaire d'adoption
-    path('formulaire-adoption/<int:id>/', views.formulaire_adoption, name='formulaire_adoption')
+    # path('formulaire-adoption/<int:id>/', views.formulaire_adoption, name='formulaire_adoption')
 ]

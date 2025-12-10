@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unis'Pattes - Refuge Animalier</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'animaux/css/style.css' %}">
 </head>
 <body>
 
@@ -36,7 +37,7 @@
         <div class="hero-content">
             <h1>Un foyer pour chaque animal</h1>
             <p>Nous recueillons et accompagnons chiens et chats en attente d'une famille aimante.</p>
-            <a href="nos_animaux.html" class="btn">Voir les animaux</a>
+            <a href="{% url 'animaux:nos_animaux' %}" class="btn">Voir les animaux</a>
         </div>
     </section>
 
@@ -64,7 +65,7 @@
 
                 <!-- Image à droite -->
                 <div class="image-droite">
-                    <img src="images/accueil-chien-chat.png" alt="Notre équipe avec les animaux">
+                    <img src="{% static 'animaux/images/accueil-chien-chat.png' %}" alt="Notre équipe avec les animaux">
                 </div>
 
             </div>
@@ -86,37 +87,37 @@
                 <!-- ANIMAL 1 -->
                 <div class="animal-card">
                     <div class="animal-image-rond">
-                        <img src="images/maxchien.png" alt="Max">
+                        <img src="{% static 'animaux/images/maxchien.png' %}" alt="Max">
                     </div>
                     <div class="animal-info-card">
                         <h3>Max</h3>
                         <p>3 ans • Mâle</p>
                     </div>
-                    <a href="#contact" class="btn-adoption">En savoir plus</a>
+                    <a href="{% url 'animaux:nos_animaux' %}" class="btn-adoption">En savoir plus</a>
                 </div>
 
                 <!-- ANIMAL 2 -->
                 <div class="animal-card">
                     <div class="animal-image-rond">
-                        <img src="images/lunachat.png" alt="Luna">
+                        <img src="{% static 'animaux/images/lunachat.png' %}" alt="Luna">
                     </div>
                     <div class="animal-info-card">
                         <h3>Luna</h3>
                         <p>2 ans • Femelle</p>
                     </div>
-                    <a href="#contact" class="btn-adoption">En savoir plus</a>
+                    <a href="{% url 'animaux:nos_animaux' %}" class="btn-adoption">En savoir plus</a>
                 </div>
 
                 <!-- ANIMAL 3 -->
                 <div class="animal-card">
                     <div class="animal-image-rond">
-                        <img src="images/rockychien.png" alt="Rocky">
+                        <img src="{% static 'animaux/images/rockychien.png' %}" alt="Rocky">
                     </div>
                     <div class="animal-info-card">
                         <h3>Rocky</h3>
                         <p>4 mois • Mâle</p>
                     </div>
-                    <a href="#contact" class="btn-adoption">En savoir plus</a>
+                    <a href="{% url 'animaux:nos_animaux' %}" class="btn-adoption">En savoir plus</a>
                 </div>
 
             </div>
@@ -194,7 +195,7 @@
 
             <!-- Bouton final -->
             <div class="comment-adopter-footer">
-                <a href="nos_animaux.html" class="btn-voir-animaux">Voir tous nos animaux</a>
+                <a href="{% url 'animaux:nos_animaux' %}" class="btn-voir-animaux">Voir tous nos animaux</a>
             </div>
         </div>
     </section>
@@ -223,9 +224,9 @@
                     <h3>Liens rapides</h3>
                     <ul class="footer-links">
                         <li><a href="#accueil">Accueil</a></li>
-                        <li><a href="#apropos">À propos</a></li>              <!-- ✅ Changé -->
+                        <li><a href="#apropos">À propos</a></li>
                         <li><a href="#animaux">Nos animaux</a></li>
-                        <li><a href="#comment-adopter">Comment adopter</a></li>  <!-- ✅ Changé -->
+                        <li><a href="#comment-adopter">Comment adopter</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -280,7 +281,7 @@
         </div>
     </footer>
 
-
+    <script src="{% static 'animaux/js/script.js' %}"></script>
 
 </body>
 </html>
