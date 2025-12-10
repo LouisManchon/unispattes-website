@@ -1,1 +1,11 @@
-/venv
+__pycache__/
+*.py[cod]
+*.pyc           # ← Fichiers .pyc
+*.pyo           # ← Fichiers .pyo (optimisés)
+*.pyd           # ← Extensions Python compilées
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
