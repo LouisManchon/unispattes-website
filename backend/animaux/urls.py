@@ -10,9 +10,9 @@ urlpatterns = [
     # Liste des animaux
     path('nos-animaux/', views.nos_animaux, name='nos_animaux'),
 
-    # Détails d'un animal
+    # Détails d'un animal a faire quand la page sera faite
     # path('animal/<int:id>/', views.detail_animal, name='detail_animal'),
 
-    # Formulaire d'adoption
+    # Formulaire d'adoption a faire quand la page sera faite
     # path('formulaire-adoption/<int:id>/', views.formulaire_adoption, name='formulaire_adoption')
 ]
