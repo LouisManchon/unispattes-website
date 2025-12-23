@@ -9,3 +9,5 @@ __pycache__/
 venv/
 env/
 ENV/
+# Fichiers média (uploads)
+backend/media/
