@@ -56,3 +56,7 @@ class Animal(models.Model):
             return f"{self.age_annees} an" if self.age_annees == 1 else f"{self.age_annees} ans"
         else:
             return f"{self.age_annees} an{'s' if self.age_annees > 1 else ''} et {self.age_mois} mois"
+
+    def get_symbole_sexe(self):
+        """Retourne le symbole du sexe (♂ ou ♀)"""
+        return '♂' if self.sexe == 'M' else '♀'

@@ -84,43 +84,31 @@
             <!-- Grille des 3 animaux -->
             <div class="animaux-grid">
 
-                <!-- ANIMAL 1 -->
+                {% for animal in animaux_recents %}
+                <!-- ANIMAL {{ forloop.counter }} -->
                 <div class="animal-card">
                     <div class="animal-image-rond">
-                        <img src="{% static 'animaux/images/maxchien.png' %}" alt="Max">
+                        {% if animal.photo %}
+                            <img src="{{ animal.photo.url }}" alt="{{ animal.nom }}">
+                        {% else %}
+                            <img src="{% static 'animaux/images/default-animal.png' %}" alt="{{ animal.nom }}">
+                        {% endif %}
                     </div>
                     <div class="animal-info-card">
-                        <h3>Max</h3>
-                        <p>3 ans • Mâle</p>
+                        <h3>{{ animal.nom }}</h3>
+                        <p>{{ animal.get_age_display }} • {{ animal.get_symbole_sexe }} {{ animal.get_sexe_display }}</p>
                     </div>
                     <a href="{% url 'animaux:nos_animaux' %}" class="btn-adoption">En savoir plus</a>
                 </div>
-
-                <!-- ANIMAL 2 -->
+                {% empty %}
+                <!-- SI AUCUN ANIMAL -->
                 <div class="animal-card">
-                    <div class="animal-image-rond">
-                        <img src="{% static 'animaux/images/lunachat.png' %}" alt="Luna">
-                    </div>
-                    <div class="animal-info-card">
-                        <h3>Luna</h3>
-                        <p>2 ans • Femelle</p>
-                    </div>
-                    <a href="{% url 'animaux:nos_animaux' %}" class="btn-adoption">En savoir plus</a>
+                    <p>Aucun animal disponible pour le moment.</p>
                 </div>
-
-                <!-- ANIMAL 3 -->
-                <div class="animal-card">
-                    <div class="animal-image-rond">
-                        <img src="{% static 'animaux/images/rockychien.png' %}" alt="Rocky">
-                    </div>
-                    <div class="animal-info-card">
-                        <h3>Rocky</h3>
-                        <p>4 mois • Mâle</p>
-                    </div>
-                    <a href="{% url 'animaux:nos_animaux' %}" class="btn-adoption">En savoir plus</a>
-                </div>
+                {% endfor %}
 
             </div>
+
         </div>
     </section>
 

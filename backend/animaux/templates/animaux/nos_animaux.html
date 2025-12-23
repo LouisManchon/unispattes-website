@@ -63,6 +63,7 @@
                     <!-- ✅ CONTENU DES FILTRES (caché par défaut sur mobile) -->
                     <div class="filtres-content active">
 
+                        <!-- Filtre Nom -->
                         <div class="filtre-group">
                             <h4>🔍 Nom de l'animal</h4>
                             <input
@@ -77,12 +78,12 @@
                         <div class="filtre-group">
                             <h4>🐾 Espèce</h4>
                             <label class="checkbox-label">
-                                <input type="checkbox" checked data-filter="chien">
-                                <span>Chiens (5)</span>
+                                <input type="checkbox" id="espece-chien" checked data-filter="chien">
+                                <span>Chiens</span>
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" checked data-filter="chat">
-                                <span>Chats (4)</span>
+                                <input type="checkbox" id="espece-chat" checked data-filter="chat">
+                                <span>Chats</span>
                             </label>
                         </div>
 
@@ -94,11 +95,11 @@
                                 <span>Tous</span>
                             </label>
                             <label class="radio-label">
-                                <input type="radio" name="sexe" value="male">
+                                <input type="radio" name="sexe" value="m">
                                 <span>Mâle</span>
                             </label>
                             <label class="radio-label">
-                                <input type="radio" name="sexe" value="femelle">
+                                <input type="radio" name="sexe" value="f">
                                 <span>Femelle</span>
                             </label>
                         </div>
@@ -133,116 +134,40 @@
                     </div>
                 </aside>
 
+
                 <!-- ========== COLONNE DROITE : GRILLE ========== -->
                 <div class="animaux-grid">
 
-                    <!-- CARTE 1 : Max -->
-                    <div class="animal-card" data-espece="chien" data-sexe="male" data-age="adulte">
-                        <div class="card-image">
-                            <img src="{% static 'animaux/images/maxchien.png' %}" alt="Max">
-                        </div>
-                        <div class="card-info">
-                            <h3><span class="sexe-icon">♂</span> Max</h3>
-                            <p class="animal-details">Chien • 5 ans</p>
-                            <a href="#" class="btn-savoir-plus">En savoir plus</a>
-                        </div>
-                    </div>
+                    {% for animal in animaux %}
+                    <div class="animal-card"
+                        data-espece="{{ animal.espece|lower }}"
+                        data-sexe="{{ animal.sexe|lower }}"
+                        data-age="{{ animal.categorie_age|lower }}"
+                        data-nom="{{ animal.nom|lower }}">
 
-                    <!-- CARTE 2 : Luna -->
-                    <div class="animal-card" data-espece="chat" data-sexe="femelle" data-age="adulte">
-                        <div class="card-image">
-                            <img src="{% static 'animaux/images/lunachat.png' %}" alt="Luna">
-                        </div>
-                        <div class="card-info">
-                            <h3><span class="sexe-icon">♀</span> Luna</h3>
-                            <p class="animal-details">Chat • 3 ans</p>
-                            <a href="#" class="btn-savoir-plus">En savoir plus</a>
-                        </div>
-                    </div>
 
-                    <!-- CARTE 3 : Rocky -->
-                    <div class="animal-card" data-espece="chien" data-sexe="male" data-age="junior">
                         <div class="card-image">
-                            <img src="{% static 'animaux/images/rockychien.png' %}" alt="Rocky">
+                            {% if animal.photo %}
+                                <img src="{{ animal.photo.url }}" alt="{{ animal.nom }}">
+                            {% else %}
+                                <img src="{% static 'animaux/images/default-animal.png' %}" alt="{{ animal.nom }}">
+                            {% endif %}
                         </div>
-                        <div class="card-info">
-                            <h3><span class="sexe-icon">♂</span> Rocky</h3>
-                            <p class="animal-details">Chien • 10 mois</p>
-                            <a href="#" class="btn-savoir-plus">En savoir plus</a>
-                        </div>
-                    </div>
 
-                    <!-- CARTE 4 : Bella -->
-                    <div class="animal-card" data-espece="chat" data-sexe="femelle" data-age="senior">
-                        <div class="card-image">
-                            <img src="{% static 'animaux/images/bellachat.png' %}" alt="Bella">
-                        </div>
                         <div class="card-info">
-                            <h3><span class="sexe-icon">♀</span> Bella</h3>
-                            <p class="animal-details">Chat • 9 ans</p>
+                            <h3>
+                                <span class="sexe-icon">{% if animal.sexe == 'M' %}♂{% else %}♀{% endif %}</span>
+                                {{ animal.nom }}
+                            </h3>
+                            <p class="animal-details">
+                                {{ animal.get_espece_display }} • {{ animal.get_age_display }}
+                            </p>
                             <a href="#" class="btn-savoir-plus">En savoir plus</a>
                         </div>
                     </div>
-
-                    <!-- CARTE 5 : Charlie -->
-                    <div class="animal-card" data-espece="chien" data-sexe="male" data-age="junior">
-                        <div class="card-image">
-                            <img src="{% static 'animaux/images/charliechien.png' %}" alt="Charlie">
-                        </div>
-                        <div class="card-info">
-                            <h3><span class="sexe-icon">♂</span> Charlie</h3>
-                            <p class="animal-details">Chien • 1 an</p>
-                            <a href="#" class="btn-savoir-plus">En savoir plus</a>
-                        </div>
-                    </div>
-
-                    <!-- CARTE 6 : Daisy -->
-                    <div class="animal-card" data-espece="chat" data-sexe="femelle" data-age="senior">
-                        <div class="card-image">
-                            <img src="{% static 'animaux/images/daisychat.png' %}" alt="Daisy">
-                        </div>
-                        <div class="card-info">
-                            <h3><span class="sexe-icon">♀</span> Daisy</h3>
-                            <p class="animal-details">Chat • 10 ans</p>
-                            <a href="#" class="btn-savoir-plus">En savoir plus</a>
-                        </div>
-                    </div>
-
-                    <!-- CARTE 7 : Lola -->
-                    <div class="animal-card" data-espece="chien" data-sexe="femelle" data-age="senior">
-                        <div class="card-image">
-                            <img src="{% static 'animaux/images/lolachien.png' %}" alt="Lola">
-                        </div>
-                        <div class="card-info">
-                            <h3><span class="sexe-icon">♀</span> Lola</h3>
-                            <p class="animal-details">Chien • 8 ans</p>
-                            <a href="#" class="btn-savoir-plus">En savoir plus</a>
-                        </div>
-                    </div>
-
-                    <!-- CARTE 8 : Simba -->
-                    <div class="animal-card" data-espece="chien" data-sexe="male" data-age="junior">
-                        <div class="card-image">
-                            <img src="{% static 'animaux/images/simbachien.png' %}" alt="Simba">
-                        </div>
-                        <div class="card-info">
-                            <h3><span class="sexe-icon">♂</span> Simba</h3>
-                            <p class="animal-details">Chien • 1 an</p>
-                            <a href="#" class="btn-savoir-plus">En savoir plus</a>
-                        </div>
-                    </div>
-
-                    <!-- CARTE 9 : Nala -->
-                    <div class="animal-card" data-espece="chat" data-sexe="femelle" data-age="junior">
-                        <div class="card-image">
-                            <img src="{% static 'animaux/images/nalachat.png' %}" alt="Nala">
-                        </div>
-                        <div class="card-info">
-                            <h3><span class="sexe-icon">♀</span> Nala</h3>
-                            <p class="animal-details">Chat • 7 mois</p>
-                            <a href="#" class="btn-savoir-plus">En savoir plus</a>
-                        </div>
-                    </div>
+                    {% empty %}
+                    <p class="no-animals">Aucun animal disponible pour le moment.</p>
+                    {% endfor %}
 
                 </div>
 
@@ -332,6 +257,7 @@
     </footer>
 
     <script src="{% static 'animaux/js/script.js' %}"></script>
+    <script src="{% static 'animaux/js/filter.js' %}"></script>
 
 </body>
 </html>
