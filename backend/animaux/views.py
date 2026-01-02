@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Animal
 
 def index(request):
@@ -16,3 +16,11 @@ def nos_animaux(request):
         'animaux': animaux
     }
     return render(request, 'animaux/nos_animaux.html', context)
+
+def detail_animal(request, id):
+    """Affiche la page de détail d'un animal spécifique"""
+    animal = get_object_or_404(Animal, id=id)
+    context = {
+        'animal': animal
+    }
+    return render(request, 'animaux/detail_animal.html', context)
