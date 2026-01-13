@@ -162,7 +162,9 @@
                             <p class="animal-details">
                                 {{ animal.get_espece_display }} • {{ animal.get_age_display }}
                             </p>
-                            <a href="#" class="btn-savoir-plus">En savoir plus</a>
+                            <a href="{% url 'animaux:detail_animal' animal.id %}" class="btn-savoir-plus">
+                                En savoir plus
+                            </a>
                         </div>
                     </div>
                     {% empty %}
