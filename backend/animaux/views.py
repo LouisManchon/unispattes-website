@@ -25,7 +25,8 @@ def detail_animal(request, id):
             demande.animal = animal
             demande.save()
             messages.success(request, f'✅ Demande pour {animal.nom} envoyée !')
-            return redirect('detail_animal', id=animal.id)
+            return redirect('animaux:detail_animal', id=animal.id)
+
     else:
         form = DemandeAdoptionForm(initial={'animal': animal})
 

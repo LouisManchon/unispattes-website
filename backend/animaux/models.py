@@ -117,13 +117,11 @@ class DemandeAdoption(models.Model):
     telephone = models.CharField(
         max_length=20,
         verbose_name="Téléphone",
-        help_text="Format: 06 12 34 56 78 ou 0612345678"
     )
 
     adresse = models.CharField(
         max_length=300,
         blank=True,
-        verbose_name="Adresse complète (optionnel)"
     )
 
     # ========================================
@@ -153,7 +151,6 @@ class DemandeAdoption(models.Model):
         max_length=200,
         blank=True,
         verbose_name="Si oui, lesquels ?",
-        help_text="Ex: 1 chat, 1 lapin"
     )
 
     # ========================================
@@ -161,7 +158,6 @@ class DemandeAdoption(models.Model):
     # ========================================
     motivation = models.TextField(
         verbose_name="Pourquoi voulez-vous adopter cet animal ?",
-        help_text="Minimum 50 caractères"
     )
 
     disponibilite = models.CharField(
@@ -175,7 +171,6 @@ class DemandeAdoption(models.Model):
         max_length=200,
         blank=True,
         verbose_name="Précisions sur vos disponibilités (optionnel)",
-        help_text="Ex: Plutôt en fin d'après-midi"
     )
 
     # ========================================
