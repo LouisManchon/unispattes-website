@@ -190,6 +190,7 @@ class DemandeAdoption(models.Model):
         verbose_name = "Demande d'adoption"
         verbose_name_plural = "Demandes d'adoption"
         ordering = ['-date_demande']  # Les plus récentes en premier
+        unique_together = [['email', 'animal']]
 
     def __str__(self):
         return f"Demande de {self.nom_complet} pour {self.animal.nom} ({self.date_demande.strftime('%d/%m/%Y')})"
