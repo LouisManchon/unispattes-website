@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from .models import Animal, DemandeAdoption
+from django.db import IntegrityError
 from .forms import DemandeAdoptionForm
 
 
@@ -21,12 +22,19 @@ def detail_animal(request, id):
     if request.method == 'POST':
         form = DemandeAdoptionForm(request.POST)
         if form.is_valid():
-            demande = form.save(commit=False)
-            demande.animal = animal
-            demande.save()
-            messages.success(request, f'✅ Demande pour {animal.nom} envoyée !')
-            return redirect('animaux:detail_animal', id=animal.id)
+            try:
+                demande = form.save(commit=False)
+                demande.animal = animal
+                demande.save()
+                messages.success(request, f'✅ Demande pour {animal.nom} envoyée !')
+                return redirect('animaux:detail_animal', id=animal.id)
 
+            except IntegrityError:  # SI DOUBLON DÉTECTÉ
+                messages.error(
+                    request,
+                    f'⚠️ Vous avez déjà fait une demande pour {animal.nom}. '
+                    'Consultez votre email ou contactez-nous.'
+                )
     else:
         form = DemandeAdoptionForm(initial={'animal': animal})
 
