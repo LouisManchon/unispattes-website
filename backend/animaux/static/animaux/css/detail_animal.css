@@ -4,6 +4,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
 /* ========================================
+   SCROLL FLUIDE
+======================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Décalage pour le formulaire */
+#formulaire-adoption {
+    scroll-margin-top: 100px;
+}
+
+/* ========================================
    RESET ET BASE
 ======================================== */
 * {
@@ -803,4 +815,83 @@ body {
     padding: 0;
     margin: 5px 0 0 0;
     font-size: 14px;
+}
+
+/* ========================================
+   GESTION DES ERREURS DE FORMULAIRE
+   ======================================== */
+
+/* Liste d'erreurs générée par Django */
+.errorlist {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0 0;
+}
+
+.errorlist li {
+    color: #dc3545;
+    background: #fff5f5;
+    padding: 10px 15px;
+    border-left: 4px solid #dc3545;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    animation: slideIn 0.3s ease;
+}
+
+/* Champs INPUT en erreur */
+input.error,
+textarea.error,
+select.error {
+    border: 2px solid #dc3545 !important;
+    background-color: #fff5f5 !important;
+}
+
+/* Conteneur de radio buttons en erreur */
+.radio-buttons.error {
+    border: 2px solid #dc3545 !important;
+    background-color: #fff5f5 !important;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Astérisque rouge pour champs requis */
+.required::after {
+    content: " *";
+    color: #dc3545;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Animation d'apparition */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Messages d'alerte en haut */
+.alert {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    animation: slideIn 0.3s ease;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
 }

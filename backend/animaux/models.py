@@ -99,7 +99,7 @@ class DemandeAdoption(models.Model):
         Animal,
         on_delete=models.CASCADE,
         related_name='demandes_adoption',
-        verbose_name="Animal"
+        verbose_name="Animal",
     )
 
     # ========================================
@@ -130,13 +130,15 @@ class DemandeAdoption(models.Model):
     type_logement = models.CharField(
         max_length=30,
         choices=TYPE_LOGEMENT_CHOICES,
-        verbose_name="Type de logement"
+        verbose_name="Type de logement",
+        blank=False,
     )
 
     statut_logement = models.CharField(
         max_length=20,
         choices=STATUT_LOGEMENT_CHOICES,
-        verbose_name="Statut du logement"
+        verbose_name="Statut du logement",
+        blank=False,
     )
 
     # ========================================
@@ -163,8 +165,8 @@ class DemandeAdoption(models.Model):
     disponibilite = models.CharField(
         max_length=20,
         choices=CHOIX_DISPONIBILITE,
-        default='FLEXIBLE',
-        verbose_name="Quand pouvez-vous venir ?"
+        verbose_name="Quand pouvez-vous venir ?",
+        blank=False
     )
 
     precisions_disponibilite = models.CharField(
