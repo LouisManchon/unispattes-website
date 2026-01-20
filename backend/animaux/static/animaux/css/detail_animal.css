@@ -573,9 +573,10 @@ body {
     margin-left: auto;
   }
 
+  /* Menu caché par défaut */
   .nav-links {
     position: fixed;
-    right: -100%;
+    right: 0;
     top: 0;
     height: 100vh;
     width: 70%;
@@ -584,19 +585,25 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 40px;
-    transition: right 0.3s ease-in-out;
+    transform: translateX(100%);  /* ← Cache le menu à droite */
+    transition: transform 0.5s ease-in-out;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
 
-  .nav-links.active {
-    right: 0;
+  /* Menu actif (visible) - CORRESPOND AU JAVASCRIPT */
+  .nav-links.nav-active {
+    transform: translateX(0);  /* ← Fait glisser le menu vers la gauche */
   }
 
+
+
+  /* Cache le soulignement sur mobile */
   .nav-links a::after {
     display: none;
   }
 
+  /* Animation du burger en X */
   .burger.toggle .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
   }
@@ -609,6 +616,7 @@ body {
     transform: rotate(45deg) translate(-5px, -6px);
   }
 
+  /* Logo plus petit */
   .logo-icon {
     font-size: 1.5rem;
   }
@@ -749,7 +757,7 @@ body {
     color: #34495e;
 }
 
-.formulaire-adoption input,
+.formulaire-adoption input:not([type="checkbox"]):not([type="radio"]),
 .formulaire-adoption textarea {
     width: 100%;
     padding: 12px 15px;
@@ -855,13 +863,6 @@ select.error {
     border-radius: 8px;
 }
 
-/* Astérisque rouge pour champs requis */
-.required::after {
-    content: " *";
-    color: #dc3545;
-    font-weight: bold;
-    font-size: 1.1em;
-}
 
 /* Animation d'apparition */
 @keyframes slideIn {
@@ -894,4 +895,86 @@ select.error {
     background: #f8d7da;
     color: #721c24;
     border-left: 4px solid #dc3545;
+}
+
+/* ========================================
+   CHECKBOX "Autres animaux" - CORRECTION
+======================================== */
+
+/* Annuler le width: 100% pour les checkbox */
+.formulaire-adoption input[type="checkbox"] {
+    width: 20px !important;
+    height: 20px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer;
+    accent-color: #ff6b6b;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+/* Container du checkbox */
+.formulaire-adoption .checkbox-field {
+    margin-bottom: 20px;
+}
+
+/* Label qui contient le checkbox */
+.formulaire-adoption .checkbox-field label {
+    display: flex !important;
+    align-items: center !important;
+    gap: 40px; /* ← Espace raisonnable entre texte et checkbox */
+    cursor: pointer;
+    margin-bottom: 0 !important;
+}
+
+/* Le texte à côté du checkbox */
+.formulaire-adoption .checkbox-field label span {
+    line-height: 1.4;
+}
+
+
+
+/* ========================================
+   BOUTONS RECTANGULAIRES POUR LES RADIOS
+======================================== */
+
+/* Container des boutons radio */
+.radio-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+/* Masquer le cercle radio classique */
+.radio-buttons input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Créer des boutons rectangulaires */
+.radio-buttons label {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #f5f5f5;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Effet au survol */
+.radio-buttons label:hover {
+    background: #e8e8e8;
+    border-color: #bbb;
+}
+
+/* Bouton sélectionné */
+.radio-buttons input[type="radio"]:checked + label {
+    background: #8B4513;
+    color: white;
+    border-color: #8B4513;
 }

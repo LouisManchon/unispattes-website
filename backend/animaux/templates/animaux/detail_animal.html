@@ -59,12 +59,6 @@
                             <img src="{% static 'animaux/images/default-animal.png' %}" alt="{{ animal.nom }}">
                         {% endif %}
                     </div>
-
-                    {% if not animal.disponible %}
-                    <div class="badge-adopte">
-                        <span>✓ Déjà adopté</span>
-                    </div>
-                    {% endif %}
                 </div>
 
                 <!-- ========== COLONNE DROITE : INFORMATIONS ========== -->
@@ -220,34 +214,44 @@
                 <p>
                     <label class="required">{{ form.type_logement.label }}</label>
                     <div class="radio-buttons">
-                        {% for radio in form.type_logement %}
-                            {{ radio.tag }}
-                            <label for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                        {% for choice_value, choice_label in form.type_logement.field.choices %}
+                            <input type="radio"
+                                name="type_logement"
+                                value="{{ choice_value }}"
+                                id="id_type_logement_{{ forloop.counter }}"
+                                {% if form.type_logement.value == choice_value %}checked{% endif %}>
+                            <label for="id_type_logement_{{ forloop.counter }}">{{ choice_label }}</label>
                         {% endfor %}
                     </div>
                     {{ form.type_logement.errors }}
                 </p>
 
+
                 <!-- STATUT DU LOGEMENT -->
                 <p>
                     <label class="required">{{ form.statut_logement.label }}</label>
                     <div class="radio-buttons">
-                        {% for radio in form.statut_logement %}
-                            {{ radio.tag }}
-                            <label for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                        {% for choice_value, choice_label in form.statut_logement.field.choices %}
+                            <input type="radio"
+                                name="statut_logement"
+                                value="{{ choice_value }}"
+                                id="id_statut_logement_{{ forloop.counter }}"
+                                {% if form.statut_logement.value == choice_value %}checked{% endif %}>
+                            <label for="id_statut_logement_{{ forloop.counter }}">{{ choice_label }}</label>
                         {% endfor %}
                     </div>
                     {{ form.statut_logement.errors }}
                 </p>
 
+
                 <!-- Autres animaux (Checkbox) -->
-                <p class="checkbox-field">
-                    {{ form.a_autres_animaux }}
+                <div class="checkbox-field">
                     <label for="{{ form.a_autres_animaux.id_for_label }}">
-                        {{ form.a_autres_animaux.label }}
+                        <span>{{ form.a_autres_animaux.label }}</span>
+                        {{ form.a_autres_animaux }}
                     </label>
                     {{ form.a_autres_animaux.errors }}
-                </p>
+                </div>
 
                 <!-- Détails autres animaux -->
                 <p>
@@ -271,13 +275,18 @@
                 <p>
                     <label class="required">{{ form.disponibilite.label }}</label>
                     <div class="radio-buttons">
-                        {% for radio in form.disponibilite %}
-                            {{ radio.tag }}
-                            <label for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                        {% for choice_value, choice_label in form.disponibilite.field.choices %}
+                            <input type="radio"
+                                name="disponibilite"
+                                value="{{ choice_value }}"
+                                id="id_disponibilite_{{ forloop.counter }}"
+                                {% if form.disponibilite.value == choice_value %}checked{% endif %}>
+                            <label for="id_disponibilite_{{ forloop.counter }}">{{ choice_label }}</label>
                         {% endfor %}
                     </div>
                     {{ form.disponibilite.errors }}
                 </p>
+
 
                 <!-- Précisions disponibilité -->
                 <p>

@@ -22,7 +22,6 @@ class Animal(models.Model):
         ('senior', 'Senior (plus de 7 ans)'),
     ]
 
-
     # Champs du modèle Animal
     nom = models.CharField(max_length=100, verbose_name="Nom")
     espece = models.CharField(max_length=10, choices=ESPECE_CHOICES, verbose_name="Espèce")
@@ -43,7 +42,7 @@ class Animal(models.Model):
     class Meta:
         verbose_name = "Animal"
         verbose_name_plural = "Animaux"
-        ordering = ['-date_arrivee'] #  Les plus récents en premier
+        ordering = ['-date_arrivee']
 
     def __str__(self):
         return f"{self.nom} ({self.get_espece_display()})"
@@ -92,6 +91,13 @@ class DemandeAdoption(models.Model):
         ('FLEXIBLE', 'Flexible'),
     ]
 
+    # STATUT DE LA DEMANDE
+    STATUT_DEMANDE_CHOICES = [
+        ('EN_ATTENTE', '⏳ En attente'),
+        ('ACCEPTEE', '✅ Acceptée'),
+        ('REFUSEE', '❌ Refusée'),
+    ]
+
     # ========================================
     # RELATIONS
     # ========================================
@@ -122,6 +128,7 @@ class DemandeAdoption(models.Model):
     adresse = models.CharField(
         max_length=300,
         blank=True,
+        verbose_name="Adresse"
     )
 
     # ========================================
@@ -131,14 +138,12 @@ class DemandeAdoption(models.Model):
         max_length=30,
         choices=TYPE_LOGEMENT_CHOICES,
         verbose_name="Type de logement",
-        blank=False,
     )
 
     statut_logement = models.CharField(
         max_length=20,
         choices=STATUT_LOGEMENT_CHOICES,
         verbose_name="Statut du logement",
-        blank=False,
     )
 
     # ========================================
@@ -166,7 +171,6 @@ class DemandeAdoption(models.Model):
         max_length=20,
         choices=CHOIX_DISPONIBILITE,
         verbose_name="Quand pouvez-vous venir ?",
-        blank=False
     )
 
     precisions_disponibilite = models.CharField(
@@ -183,15 +187,27 @@ class DemandeAdoption(models.Model):
         verbose_name="Date de la demande"
     )
 
+    statut = models.CharField(
+        max_length=20,
+        choices=STATUT_DEMANDE_CHOICES,
+        default='EN_ATTENTE',
+        verbose_name="Statut de la demande"
+    )
+
     traitee = models.BooleanField(
         default=False,
         verbose_name="Demande traitée"
     )
 
+    notes_admin = models.TextField(
+        blank=True,
+        verbose_name="Notes administrateur (privé)"
+    )
+
     class Meta:
         verbose_name = "Demande d'adoption"
         verbose_name_plural = "Demandes d'adoption"
-        ordering = ['-date_demande']  # Les plus récentes en premier
+        ordering = ['-date_demande']
         unique_together = [['email', 'animal']]
 
     def __str__(self):

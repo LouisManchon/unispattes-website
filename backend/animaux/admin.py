@@ -1,7 +1,11 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from django.utils import timezone
+from django.shortcuts import get_object_or_404, redirect
+from django.urls import path
+from django.shortcuts import redirect
+from django.contrib import messages
 from .models import Animal, DemandeAdoption
+from django.utils.safestring import mark_safe
 
 
 # ========================================
@@ -40,9 +44,7 @@ class AnimalAdmin(admin.ModelAdmin):
 # ========================================
 @admin.register(DemandeAdoption)
 class DemandeAdoptionAdmin(admin.ModelAdmin):
-    """
-    Interface admin pour gérer les demandes d'adoption
-    """
+    """Interface admin pour gérer les demandes d'adoption"""
 
     # ========================================
     # LISTE DES DEMANDES
@@ -52,23 +54,20 @@ class DemandeAdoptionAdmin(admin.ModelAdmin):
         'nom_complet',
         'animal',
         'get_type_logement_emoji',
-        'get_date_demande_courte',
-        'disponibilite',
+        'get_date_demande',
         'telephone',
-        'traitee',
-        'statut_colored',
+        'get_statut_colored',
+        'get_boutons_action',
     )
 
     # ========================================
     # FILTRES
     # ========================================
     list_filter = (
-        'traitee',
+        'statut',
         'date_demande',
         'animal__espece',
         'type_logement',
-        'statut_logement',
-        'a_autres_animaux',
         'disponibilite',
     )
 
@@ -83,13 +82,12 @@ class DemandeAdoptionAdmin(admin.ModelAdmin):
         'motivation',
     )
 
-    list_editable = ('traitee',)
     readonly_fields = ('date_demande', 'get_numero_demande')
     date_hierarchy = 'date_demande'
     list_per_page = 25
 
     # ========================================
-    # MÉTHODES PERSONNALISÉES
+    # COLONNES PERSONNALISÉES
     # ========================================
 
     def get_numero_demande(self, obj):
@@ -101,74 +99,86 @@ class DemandeAdoptionAdmin(admin.ModelAdmin):
     def get_type_logement_emoji(self, obj):
         """Type de logement avec emoji"""
         emoji_map = {
-            'MAISON_JARDIN': '🏡🌿',
+            'MAISON_JARDIN': '🏡',
             'MAISON_SANS_JARDIN': '🏠',
             'APPARTEMENT_BALCON': '🏢🌿',
             'APPARTEMENT_SANS_BALCON': '🏢',
         }
         emoji = emoji_map.get(obj.type_logement, '❓')
-        label = obj.get_type_logement_display().split(' ')[0]
-        return f"{emoji} {label}"
+        return f"{emoji} {obj.get_type_logement_display()}"
     get_type_logement_emoji.short_description = '🏠 Logement'
-    get_type_logement_emoji.admin_order_field = 'type_logement'
 
-    def get_date_demande_courte(self, obj):
-        """Date avec SLA : 48h pour répondre"""
-        delta = timezone.now() - obj.date_demande
-        heures = delta.total_seconds() / 3600
+    def get_date_demande(self, obj):
+        """Date formatée simplement"""
+        return obj.date_demande.strftime('%d/%m/%Y à %H:%M')
+    get_date_demande.short_description = '📅 Date de demande'
+    get_date_demande.admin_order_field = 'date_demande'
 
-        # Si déjà traitée → pas d'alerte
-        if obj.traitee:
-            if delta.days == 0:
-                return f"Auj. {obj.date_demande.strftime('%H:%M')}"
-            elif delta.days == 1:
-                return f"Hier {obj.date_demande.strftime('%H:%M')}"
-            else:
-                return obj.date_demande.strftime('%d/%m')
+    def get_statut_colored(self, obj):
+        """Statut avec couleur"""
+        couleurs = {
+            'EN_ATTENTE': ('background:#fff3cd;color:#856404;', '⏳ En attente'),
+            'ACCEPTEE': ('background:#d4edda;color:#155724;', '✅ Acceptée'),
+            'REFUSEE': ('background:#f8d7da;color:#721c24;', '❌ Refusée'),
+        }
+        style, texte = couleurs.get(obj.statut, ('', obj.get_statut_display()))
+        return format_html(
+            '<span style="padding:6px 12px;border-radius:6px;font-weight:600;display:inline-block;{}">{}</span>',
+            style, texte
+        )
+    get_statut_colored.short_description = '📊 Statut'
+    get_statut_colored.admin_order_field = 'statut'
 
-        # Si non traitée → SLA
-        if heures < 24:
-            return format_html(
-                '<span style="color: green;">🟢 {} ({}h)</span>',
-                "Aujourd'hui" if delta.days == 0 else "Hier",
-                int(heures)
+    from django.utils.safestring import mark_safe
+
+    def get_boutons_action(self, obj):
+        """Boutons rapides Accepter/Refuser"""
+        if obj.statut == 'EN_ATTENTE':
+            return mark_safe(
+                f'<a href="{obj.pk}/accepter/" style="background:#28a745;color:white;padding:6px 12px;'
+                f'border-radius:6px;text-decoration:none;margin-right:5px;display:inline-block;'
+                f'font-size:12px;font-weight:600;">✅ Accepter</a>'
+                f'<a href="{obj.pk}/refuser/" style="background:#dc3545;color:white;padding:6px 12px;'
+                f'border-radius:6px;text-decoration:none;display:inline-block;'
+                f'font-size:12px;font-weight:600;">❌ Refuser</a>'
             )
-        elif heures < 48:
-            return format_html(
-                '<span style="color: orange;">⚠️ {}h restantes (SLA)</span>',
-                48 - int(heures)
-            )
+        elif obj.statut == 'ACCEPTEE':
+            return mark_safe('<span style="color:#28a745;font-weight:600;">✅ Adoption validée</span>')
         else:
-            jours = delta.days
-            return format_html(
-                '<span style="color: red; font-weight: bold;">🔴 RETARD {}j !</span>',
-                jours
-            )
-    get_date_demande_courte.short_description = "Date / SLA"
-    get_date_demande_courte.admin_order_field = 'date_demande'
+            return mark_safe('<span style="color:#dc3545;font-weight:600;">❌ Refusée</span>')
 
-    def statut_colored(self, obj):
-        """Statut avec emoji"""
-        if obj.traitee:
-            return "✅ Traitée"
-        return "⏳ En attente"
-    statut_colored.short_description = '📋 Statut'
-    statut_colored.admin_order_field = 'traitee'
+    get_boutons_action.short_description = '⚡ Actions'
+
+
+
+
 
     # ========================================
     # ACTIONS GROUPÉES
     # ========================================
-    actions = ['marquer_comme_traitee', 'marquer_comme_non_traitee']
+    actions = ['accepter_demandes', 'refuser_demandes', 'remettre_en_attente']
 
-    @admin.action(description="✅ Marquer comme traitée")
-    def marquer_comme_traitee(self, request, queryset):
-        count = queryset.update(traitee=True)
-        self.message_user(request, f"{count} demande(s) marquée(s) comme traitée(s).")
+    @admin.action(description="✅ Accepter les demandes sélectionnées")
+    def accepter_demandes(self, request, queryset):
+        count = 0
+        for demande in queryset.filter(statut='EN_ATTENTE'):
+            demande.statut = 'ACCEPTEE'
+            demande.traitee = True
+            demande.animal.disponible = False
+            demande.animal.save()
+            demande.save()
+            count += 1
+        self.message_user(request, f"✅ {count} demande(s) acceptée(s). Animaux marqués comme indisponibles.", messages.SUCCESS)
 
-    @admin.action(description="⏳ Marquer comme non traitée")
-    def marquer_comme_non_traitee(self, request, queryset):
-        count = queryset.update(traitee=False)
-        self.message_user(request, f"{count} demande(s) marquée(s) comme non traitée(s).")
+    @admin.action(description="❌ Refuser les demandes sélectionnées")
+    def refuser_demandes(self, request, queryset):
+        count = queryset.filter(statut='EN_ATTENTE').update(statut='REFUSEE', traitee=True)
+        self.message_user(request, f"❌ {count} demande(s) refusée(s).", messages.WARNING)
+
+    @admin.action(description="⏳ Remettre en attente")
+    def remettre_en_attente(self, request, queryset):
+        count = queryset.update(statut='EN_ATTENTE', traitee=False)
+        self.message_user(request, f"⏳ {count} demande(s) remise(s) en attente.")
 
     # ========================================
     # FORMULAIRE DÉTAILLÉ
@@ -183,29 +193,77 @@ class DemandeAdoptionAdmin(admin.ModelAdmin):
         }),
 
         ('🏠 Logement', {
-            'fields': (
-                'type_logement',
-                'statut_logement',
-            )
+            'fields': ('type_logement', 'statut_logement')
         }),
 
         ('🐾 Expérience avec les animaux', {
-            'fields': (
-                'a_autres_animaux',
-                'details_autres_animaux',
-            )
+            'fields': ('a_autres_animaux', 'details_autres_animaux')
         }),
 
         ('💭 Motivation et disponibilité', {
-            'fields': (
-                'motivation',
-                'disponibilite',
-                'precisions_disponibilite',
-            )
+            'fields': ('motivation', 'disponibilite', 'precisions_disponibilite')
         }),
 
-        ('📋 Traitement', {
-            'fields': ('traitee', 'notes_admin'),
-            'classes': ('collapse',),
+        ('📋 Statut et traitement', {
+            'fields': ('statut', 'traitee', 'notes_admin'),
         }),
     )
+
+    # ========================================
+    # URLS PERSONNALISÉES POUR LES BOUTONS
+    # ========================================
+    def get_urls(self):
+        urls = super().get_urls()
+        custom_urls = [
+            path('<int:pk>/accepter/', self.admin_site.admin_view(self.accepter_demande), name='animaux_demandeadoption_accepter'),
+            path('<int:pk>/refuser/', self.admin_site.admin_view(self.refuser_demande), name='animaux_demandeadoption_refuser'),
+        ]
+        return custom_urls + urls
+
+    def accepter_demande(self, request, pk):
+        """✅ Accepter une demande"""
+        try:
+            demande = get_object_or_404(DemandeAdoption, pk=pk)
+
+            # ✅ Vérifier que la demande est en attente
+            if demande.statut != 'EN_ATTENTE':
+                messages.warning(request, f"⚠️ Cette demande a déjà été traitée (statut : {demande.get_statut_display()}).")
+                return redirect('admin:animaux_demandeadoption_changelist')
+
+            # 🔥 NOUVEAU : Vérifier que l'animal est encore disponible
+            if not demande.animal.disponible:
+                messages.error(
+                    request,
+                    f"❌ Impossible d'accepter cette demande : {demande.animal.nom} a déjà été adopté !"
+                )
+                return redirect('admin:animaux_demandeadoption_changelist')
+
+            # ✅ Accepter la demande
+            demande.statut = 'ACCEPTEE'
+            demande.traitee = True
+            demande.save()
+
+            # ✅ Marquer l'animal comme indisponible
+            demande.animal.disponible = False
+            demande.animal.save()
+
+            messages.success(
+                request,
+                f"✅ Demande #{demande.id:05d} acceptée ! {demande.animal.nom} est maintenant indisponible à l'adoption."
+            )
+
+        except Exception as e:
+            messages.error(request, f"❌ Erreur : {str(e)}")
+
+        return redirect('admin:animaux_demandeadoption_changelist')
+
+
+    def refuser_demande(self, request, pk):
+        """❌ Refuser une demande"""
+        demande = DemandeAdoption.objects.get(pk=pk)
+        demande.statut = 'REFUSEE'
+        demande.traitee = True
+        demande.save()
+
+        messages.warning(request, f"❌ Demande de {demande.nom_complet} refusée.")
+        return redirect('admin:animaux_demandeadoption_changelist')
