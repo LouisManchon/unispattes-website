@@ -59,3 +59,7 @@ def detail_animal(request, id):
         'animal': animal,
         'form': form
     })
+
+def a_propos(request):
+    """Page À propos"""
+    return render(request, 'animaux/a_propos.html')

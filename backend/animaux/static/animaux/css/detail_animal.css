@@ -825,6 +825,10 @@ body {
     font-size: 14px;
 }
 
+body {
+    background-color: #f5ddc4; /* Beige chaud cohérent */
+}
+
 /* ========================================
    GESTION DES ERREURS DE FORMULAIRE
    ======================================== */

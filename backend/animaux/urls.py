@@ -13,6 +13,5 @@ urlpatterns = [
     # Détails d'un animal
     path('animal/<int:id>/', views.detail_animal, name='detail_animal'),
 
-    # Formulaire d'adoption a faire quand la page sera faite
-    # path('formulaire-adoption/<int:id>/', views.formulaire_adoption, name='formulaire_adoption')
+    path('a-propos/', views.a_propos, name='a_propos'),
 ]

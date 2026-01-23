@@ -1,0 +1,487 @@
+/* ========================================
+   SECTION HERO
+======================================== */
+.hero-apropos {
+  background: linear-gradient(135deg, #8B6F47 0%, #b95e3a 100%);
+  padding: 120px 20px 80px 20px;
+  text-align: center;
+}
+
+.hero-apropos-content h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #F5EBE0;
+  margin-bottom: 20px;
+}
+
+.hero-apropos-content p {
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #F5DDC4;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   LES 3 COLONNES
+======================================== */
+.apropos-colonnes {
+  background-color: #F5EBE0;
+  padding: 100px 20px;
+}
+
+.colonnes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.colonne-card {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.colonne-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.colonne-card h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #8B6F47;
+  margin-bottom: 25px;
+  border-bottom: 3px solid #b95e3a;
+  padding-bottom: 15px;
+}
+
+.colonne-card p {
+  font-family: 'Merriweather', serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.9;
+  color: #5D4E37;
+  margin-bottom: 18px;
+}
+
+.colonne-card p:last-child {
+  margin-bottom: 0;
+}
+
+.colonne-card p strong {
+  font-weight: 700;
+  color: #8B6F47;
+}
+
+/* ========================================
+   SECTION ÉQUIPE
+======================================== */
+
+.equipe-section {
+    padding: 100px 20px;
+    background: white; /* ← CHANGEMENT : Fond blanc pur */
+}
+
+/* Header section */
+.equipe-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.equipe-header h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.5rem;
+    color: #8B6F47; /* ← CHANGEMENT : Couleur cohérente */
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.equipe-sous-titre {
+    font-family: 'Merriweather', serif;
+    font-size: 1.2rem;
+    color: #5D4E37; /* ← CHANGEMENT */
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* Grille 3 colonnes */
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Carte individuelle */
+.equipe-card {
+    background: #fdfbf7; /* ← CHANGEMENT : Beige très clair pour contraster avec le blanc */
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.equipe-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Photo ronde */
+.equipe-photo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #8B6F47;
+    box-shadow: 0 4px 15px rgba(139, 111, 71, 0.3);
+    position: relative;
+}
+
+.equipe-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Repositionner UNIQUEMENT l'image de Marie */
+.equipe-grid .equipe-card:nth-child(1) .equipe-photo img {
+    object-position: center top;
+}
+
+/* Nom */
+.equipe-nom {
+    font-family: 'Merriweather', serif;
+    font-size: 1.4rem;
+    color: #5D4E37;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Rôle */
+.equipe-role {
+    font-family: 'Merriweather', serif;
+    color: #b95e3a;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+/* Bio */
+.equipe-bio {
+    font-family: 'Merriweather', serif;
+    color: #5D4E37;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ========================================
+   CHIFFRES CLÉS
+======================================== */
+.chiffres-cles {
+  background-color: #f5ddc4; /* ← Beige moyen */
+  padding: 100px 20px;
+}
+
+.section-title {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem;
+  color: #8B6F47;
+  text-align: center;
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+.chiffres-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.chiffre-card {
+  text-align: center;
+  background-color: white;
+  padding: 40px 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.chiffre-card:hover {
+  transform: scale(1.05);
+}
+
+.chiffre-numero {
+  font-family: 'Merriweather', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #b95e3a;
+  margin-bottom: 15px;
+}
+
+.chiffre-card p {
+  font-family: 'Merriweather', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #5D4E37;
+  margin: 0;
+}
+
+/* ========================================
+   CTA FINAL UNIQUE
+======================================== */
+.cta-final {
+    background: linear-gradient(135deg, #8B6F47 0%, #b95e3a 100%);
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+}
+
+.cta-final h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.cta-final p {
+    font-family: 'Merriweather', serif;
+    font-size: 1.3rem;
+    margin-bottom: 50px;
+    opacity: 0.95;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 45px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Merriweather', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: white;
+    color: #8B6F47;
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #8B6F47;
+    transform: translateY(-5px);
+}
+
+/* ========================================
+   SUPPRIMER L'ANCIENNE SECTION CTA
+======================================== */
+.apropos-cta {
+    display: none; /* ← Cache complètement l'ancienne section */
+}
+
+/* ========================================
+   LIEN ACTIF DANS LA NAVIGATION
+======================================== */
+.nav-links a.active {
+  color: #8B6F47;
+  font-weight: 700;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ========================================
+   RESPONSIVE MOBILE (< 768px)
+======================================== */
+@media (max-width: 768px) {
+
+  /* Hero */
+  .hero-apropos {
+    padding: 80px 20px 60px 20px;
+  }
+
+  .hero-apropos-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-apropos-content p {
+    font-size: 1.1rem;
+  }
+
+  /* Colonnes */
+  .apropos-colonnes {
+    padding: 60px 20px;
+  }
+
+  .colonnes-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .colonne-card {
+    padding: 30px 25px;
+  }
+
+  .colonne-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .colonne-card p {
+    font-size: 1rem;
+  }
+
+  /* Équipe */
+  .equipe-section {
+    padding: 60px 20px;
+  }
+
+  .equipe-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .equipe-header h2 {
+    font-size: 2rem;
+  }
+
+  .equipe-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .equipe-card {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Chiffres */
+  .chiffres-cles {
+    padding: 60px 20px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .chiffres-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .chiffre-numero {
+    font-size: 2.5rem;
+  }
+
+  .chiffre-card p {
+    font-size: 1rem;
+  }
+
+  /* CTA Final */
+  .cta-final {
+    padding: 60px 20px;
+  }
+
+  .cta-final h2 {
+    font-size: 2rem;
+  }
+
+  .cta-final p {
+    font-size: 1.1rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}
+
+/* ========================================
+   RESPONSIVE TABLETTE (769px - 1024px)
+======================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  /* Hero */
+  .hero-apropos-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-apropos-content p {
+    font-size: 1.2rem;
+  }
+
+  /* Colonnes en 1 colonne pour tablette */
+  .colonnes-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 700px;
+  }
+
+  /* Équipe en 2 colonnes */
+  .equipe-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  /* Chiffres en 2x2 */
+  .chiffres-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE LARGE DESKTOP (> 1400px)
+======================================== */
+@media (min-width: 1400px) {
+
+  .colonnes-grid {
+    max-width: 1400px;
+    gap: 60px;
+  }
+
+  .chiffres-grid {
+    max-width: 1200px;
+  }
+}
