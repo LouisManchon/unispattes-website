@@ -169,7 +169,7 @@
     {% if animal.disponible %}
     <section id="formulaire-adoption" class="formulaire-adoption">
         <div class="container">
-            <h2>📝 Formulaire d'adoption pour {{ animal.nom }}</h2>
+            <h2> Formulaire d'adoption pour {{ animal.nom }}</h2>
 
             <form method="POST" novalidate>
                 {% csrf_token %}
