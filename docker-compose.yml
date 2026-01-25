@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # Base de données MySQL
+  db:
+    image: mysql:8.0
+    container_name: unispattes_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: unispattes_db
+      MYSQL_USER: unispattes_user
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot_pass"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Application Django
+  backend:
+    build: ./backend
+    container_name: unispattes_backend
+    restart: always
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./backend:/app
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DEBUG=1
+      - DB_HOST=db
+      - DB_NAME=unispattes_db
+      - DB_USER=unispattes_user
+      - DB_PASSWORD=unispattes_pass
+      - DB_PORT=3306
+
+volumes:
+  mysql_data:
+  static_volume:
+  media_volume:
