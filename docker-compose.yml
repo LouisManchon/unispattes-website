@@ -44,7 +44,7 @@ services:
       - DB_HOST=db
       - DB_NAME=unispattes_db
       - DB_USER=unispattes_user
-      - DB_PASSWORD=unispattes_pass
+      - DB_PASSWORD=root
       - DB_PORT=3306
 
 volumes:
