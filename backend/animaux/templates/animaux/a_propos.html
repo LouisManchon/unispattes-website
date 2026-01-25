@@ -5,11 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos - Unis'Pattes</title>
-
-    <!-- CSS principal (header, footer, base) -->
-    <link rel="stylesheet" href="{% static 'animaux/css/style.css' %}">
-
-    <!-- CSS spécifique page À propos -->
     <link rel="stylesheet" href="{% static 'animaux/css/a_propos.css' %}">
 </head>
 <body>
@@ -26,7 +21,7 @@
                 <li><a href="{% url 'animaux:accueil' %}">Accueil</a></li>
                 <li><a href="{% url 'animaux:nos_animaux' %}">Nos animaux</a></li>
                 <li><a href="{% url 'animaux:a_propos' %}" class="active">À propos</a></li>
-                <li><a href="{% url 'animaux:a_propos' %}#contact">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
 
             <div class="burger">
@@ -151,25 +146,26 @@
     <!-- ========== SECTION CHIFFRES CLÉS ========== -->
     <section class="chiffres-cles">
         <div class="container">
+            <h2 class="section-title">Nos chiffres clés</h2>
             <div class="chiffres-grid">
 
                 <div class="chiffre-card">
-                    <div class="chiffre-numero">500+</div>
+                    <span class="chiffre-numero">500+</span>
                     <p>Adoptions réussies</p>
                 </div>
 
                 <div class="chiffre-card">
-                    <div class="chiffre-numero">25</div>
+                    <span class="chiffre-numero">25</span>
                     <p>Bénévoles actifs</p>
                 </div>
 
                 <div class="chiffre-card">
-                    <div class="chiffre-numero">16</div>
+                    <span class="chiffre-numero">16</span>
                     <p>Années d'existence</p>
                 </div>
 
                 <div class="chiffre-card">
-                    <div class="chiffre-numero">40</div>
+                    <span class="chiffre-numero">40</span>
                     <p>Animaux accueillis</p>
                 </div>
 
@@ -186,15 +182,12 @@
                 <a href="{% url 'animaux:nos_animaux' %}" class="btn-primary">
                     <span>🐾</span> Adopter un animal
                 </a>
-                <a href="{% url 'animaux:accueil' %}#contact" class="btn-secondary">
-                    <span>❤️</span> Devenir bénévole
-                </a>
             </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER (TON FOOTER HABITUEL) ========== -->
-    <footer class="main-footer">
+    <!-- ========== FOOTER ========== -->
+    <footer class="main-footer" id="contact">
         <div class="container">
             <div class="footer-content">
 
@@ -204,7 +197,8 @@
                         <span class="logo-text">Unis'Pattes</span>
                     </div>
                     <p class="footer-description">
-                        Refuge animalier dédié au bien-être et à l'adoption responsable de chiens et chats abandonnés depuis 2010.
+                        Nous œuvrons chaque jour pour offrir une seconde chance aux animaux abandonnés.
+                        Adoptez, sauvez une vie.
                     </p>
                 </div>
 
@@ -251,6 +245,7 @@
         </div>
     </footer>
 
+
     <!-- ========== SCRIPT BURGER MENU ========== -->
     <script>
         const burger = document.querySelector('.burger');
@@ -259,6 +254,13 @@
         burger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             burger.classList.toggle('toggle');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                burger.classList.remove('toggle');
+            });
         });
     </script>
 

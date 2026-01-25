@@ -1,4 +1,137 @@
 /* ========================================
+   IMPORT DE LA POLICE
+======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+/* ========================================
+   RESET ET BASE
+======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Merriweather', serif;
+  background-color: #c2bfbc;
+}
+
+/* ========================================
+   CONTAINER
+======================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+.main-header {
+  background-color: #F5EBE0;
+  padding: 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   NAVBAR
+======================================== */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  min-height: 70px;
+}
+
+/* ========================================
+   LOGO
+======================================== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1001;
+}
+
+.logo-icon {
+  font-size: 2rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #b95e3a;
+  font-family: 'Merriweather', serif;
+}
+
+/* ========================================
+   NAVIGATION DESKTOP
+======================================== */
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #b95e3a;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-family: 'Merriweather', serif;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Soulignement animé */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #A0826D;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-links a:hover {
+  color: #A0826D;
+}
+
+/* ========================================
+   BURGER MENU
+======================================== */
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #b95e3a;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* ========================================
    SECTION HERO
 ======================================== */
 .hero-apropos {
@@ -193,46 +326,48 @@
    CHIFFRES CLÉS
 ======================================== */
 .chiffres-cles {
-  background-color: #f5ddc4; /* ← Beige moyen */
+  background-color: #F5EBE0;
   padding: 100px 20px;
 }
 
 .section-title {
   font-family: 'Merriweather', serif;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  font-weight: 700;
   color: #8B6F47;
   text-align: center;
   margin-bottom: 60px;
-  font-weight: 700;
 }
 
 .chiffres-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .chiffre-card {
-  text-align: center;
   background-color: white;
   padding: 40px 20px;
   border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
 }
 
 .chiffre-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(139, 111, 71, 0.15);
 }
 
 .chiffre-numero {
   font-family: 'Merriweather', serif;
   font-size: 3.5rem;
-  font-weight: 700;
+  font-weight: 900;
   color: #b95e3a;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  display: block;
 }
 
 .chiffre-card p {
@@ -244,92 +379,208 @@
 }
 
 /* ========================================
-   CTA FINAL UNIQUE
+   CTA FINAL
 ======================================== */
 .cta-final {
-    background: linear-gradient(135deg, #8B6F47 0%, #b95e3a 100%);
-    padding: 100px 20px;
-    text-align: center;
-    color: white;
+  background: linear-gradient(135deg, #8B6F47 0%, #b95e3a 100%);
+  padding: 100px 20px;
+  text-align: center;
 }
 
 .cta-final h2 {
-    font-family: 'Merriweather', serif;
-    font-size: 2.8rem;
-    margin-bottom: 25px;
-    font-weight: 700;
+  font-family: 'Merriweather', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #F5EBE0;
+  margin-bottom: 20px;
 }
 
 .cta-final p {
-    font-family: 'Merriweather', serif;
-    font-size: 1.3rem;
-    margin-bottom: 50px;
-    opacity: 0.95;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #F5DDC4;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
 }
 
 .cta-buttons {
-    display: flex;
-    gap: 25px;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.btn-primary, .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 18px 45px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-family: 'Merriweather', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    transition: all 0.3s ease;
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 35px;
+  border-radius: 50px;
+  font-family: 'Merriweather', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary {
-    background: white;
-    color: #8B6F47;
+  background-color: #F5EBE0;
+  color: #b95e3a;
 }
 
 .btn-primary:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.btn-secondary:hover {
-    background: white;
-    color: #8B6F47;
-    transform: translateY(-5px);
+  background-color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* ========================================
-   SUPPRIMER L'ANCIENNE SECTION CTA
+   FOOTER
 ======================================== */
-.apropos-cta {
-    display: none; /* ← Cache complètement l'ancienne section */
+.main-footer {
+  background-color: #8B6F47;
+  color: #F5EBE0;
+  padding: 80px 0 0 0;
 }
 
-/* ========================================
-   LIEN ACTIF DANS LA NAVIGATION
-======================================== */
-.nav-links a.active {
-  color: #8B6F47;
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+  align-items: start;
+}
+
+.footer-column h3 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
   font-weight: 700;
+  color: #F5EBE0;
+  margin-bottom: 20px;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
 }
 
-.nav-links a.active::after {
-  width: 100%;
-  left: 0;
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  min-height: 45px;
+}
+
+.footer-logo .logo-icon {
+  font-size: 2rem;
+}
+
+.footer-logo .logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #F5EBE0;
+  font-family: 'Merriweather', serif;
+}
+
+.footer-description {
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #E8D5C4;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #E8D5C4;
+  text-decoration: none;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #F5EBE0;
+  padding-left: 5px;
+}
+
+.footer-contact {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+  font-family: 'Merriweather', serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: #E8D5C4;
+  line-height: 1.6;
+}
+
+.footer-contact svg {
+  width: 20px;
+  height: 20px;
+  color: #F5DDC4;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  background-color: #A0826D;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  background-color: #b95e3a;
+  transform: translateY(-3px);
+}
+
+.footer-social svg {
+  width: 20px;
+  height: 20px;
+  color: #F5EBE0;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(245, 235, 224, 0.2);
+  padding: 25px 0;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-family: 'Merriweather', serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #E8D5C4;
+  margin: 0;
 }
 
 /* ========================================
@@ -337,103 +588,64 @@
 ======================================== */
 @media (max-width: 768px) {
 
-  /* Hero */
-  .hero-apropos {
-    padding: 80px 20px 60px 20px;
+  .navbar {
+    padding: 0 20px;
+    height: 70px;
   }
 
-  .hero-apropos-content h1 {
-    font-size: 2.2rem;
+  .burger {
+    display: flex;
+    margin-left: auto;
   }
 
-  .hero-apropos-content p {
-    font-size: 1.1rem;
+  .nav-links {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 300px;
+    background-color: #f5ddc4;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
   }
 
-  /* Colonnes */
-  .apropos-colonnes {
-    padding: 60px 20px;
+  .nav-links.active {
+    right: 0;
   }
 
-  .colonnes-grid {
+  .nav-links a::after {
+    display: none;
+  }
+
+  .burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .burger.toggle .line2 {
+    opacity: 0;
+  }
+
+  .burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  /* Footer */
+  .footer-content {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-
-  .colonne-card {
-    padding: 30px 25px;
-  }
-
-  .colonne-card h2 {
-    font-size: 1.6rem;
-  }
-
-  .colonne-card p {
-    font-size: 1rem;
-  }
-
-  /* Équipe */
-  .equipe-section {
-    padding: 60px 20px;
-  }
-
-  .equipe-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .equipe-header h2 {
-    font-size: 2rem;
-  }
-
-  .equipe-photo {
-    width: 120px;
-    height: 120px;
-  }
-
-  .equipe-card {
-    padding: 2rem 1.5rem;
-  }
-
-  /* Chiffres */
-  .chiffres-cles {
-    padding: 60px 20px;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .chiffres-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-  }
-
-  .chiffre-numero {
-    font-size: 2.5rem;
-  }
-
-  .chiffre-card p {
-    font-size: 1rem;
-  }
-
-  /* CTA Final */
-  .cta-final {
-    padding: 60px 20px;
-  }
-
-  .cta-final h2 {
-    font-size: 2rem;
-  }
-
-  .cta-final p {
-    font-size: 1.1rem;
-  }
-
-  .btn-primary, .btn-secondary {
-    width: 100%;
-    max-width: 300px;
-    justify-content: center;
   }
 }
 
@@ -442,46 +654,26 @@
 ======================================== */
 @media (min-width: 769px) and (max-width: 1024px) {
 
-  /* Hero */
-  .hero-apropos-content h1 {
-    font-size: 3rem;
+  .nav-links {
+    gap: 20px;
   }
 
-  .hero-apropos-content p {
-    font-size: 1.2rem;
+  .nav-links a {
+    font-size: 1rem;
   }
 
-  /* Colonnes en 1 colonne pour tablette */
-  .colonnes-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    max-width: 700px;
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
   }
 
-  /* Équipe en 2 colonnes */
-  .equipe-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-  }
-
-  /* Chiffres en 2x2 */
-  .chiffres-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+  .footer-column:first-child {
+    grid-column: 1 / -1;
   }
 }
 
 /* ========================================
-   RESPONSIVE LARGE DESKTOP (> 1400px)
+   SMOOTH SCROLL POUR ANCRES
 ======================================== */
-@media (min-width: 1400px) {
-
-  .colonnes-grid {
-    max-width: 1400px;
-    gap: 60px;
-  }
-
-  .chiffres-grid {
-    max-width: 1200px;
-  }
+html {
+  scroll-behavior: smooth;
 }
