@@ -588,14 +588,16 @@ body {
 ======================================== */
 @media (max-width: 768px) {
 
+  /* ========== NAVBAR ========== */
   .navbar {
     padding: 0 20px;
-    height: 70px;
+    justify-content: space-between;
   }
 
   .burger {
-    display: flex;
+    display: flex !important;
     margin-left: auto;
+    z-index: 2000;
   }
 
   .nav-links {
@@ -608,14 +610,30 @@ body {
     background-color: #f5ddc4;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 40px;
-    transition: right 0.3s ease-in-out;
+    padding: 0;
+    margin: 0;
+    transition: right 0.4s ease-in-out;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    z-index: 1500;
   }
 
   .nav-links.active {
-    right: 0;
+    right: 0 !important;
+  }
+
+  .nav-links li {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 15px;
+    font-size: 1.1rem;
+    color: #5d4037;
   }
 
   .nav-links a::after {
@@ -642,10 +660,148 @@ body {
     font-size: 1.2rem;
   }
 
-  /* Footer */
+  /* ========== HERO ========== */
+  .hero-apropos {
+    padding: 80px 20px 60px 20px;
+  }
+
+  .hero-apropos-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-apropos-content p {
+    font-size: 1rem;
+  }
+
+  /* ========== LES 3 COLONNES ========== */
+  .apropos-colonnes {
+    padding: 60px 20px;
+  }
+
+  .colonnes-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .colonne-card {
+    padding: 30px 20px;
+  }
+
+  .colonne-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .colonne-card p {
+    font-size: 1rem;
+  }
+
+  /* ========== ÉQUIPE ========== */
+  .equipe-section {
+    padding: 60px 20px;
+  }
+
+  .equipe-header h2 {
+    font-size: 2rem;
+  }
+
+  .equipe-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .equipe-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .equipe-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .equipe-nom {
+    font-size: 1.2rem;
+  }
+
+  .equipe-role {
+    font-size: 0.8rem;
+  }
+
+  .equipe-bio {
+    font-size: 0.9rem;
+  }
+
+  /* ========== CHIFFRES CLÉS ========== */
+  .chiffres-cles {
+    padding: 60px 20px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .chiffres-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .chiffre-card {
+    padding: 30px 15px;
+  }
+
+  .chiffre-numero {
+    font-size: 2.5rem;
+  }
+
+  .chiffre-card p {
+    font-size: 0.95rem;
+  }
+
+  /* ========== CTA FINAL ========== */
+  .cta-final {
+    padding: 60px 20px;
+  }
+
+  .cta-final h2 {
+    font-size: 2rem;
+  }
+
+  .cta-final p {
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  /* ========== FOOTER ========== */
+  .main-footer {
+    padding: 60px 0 0 0;
+  }
+
   .footer-content {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .footer-column h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-logo .logo-text {
+    font-size: 1.2rem;
+  }
+
+  .footer-description {
+    font-size: 0.95rem;
   }
 }
 

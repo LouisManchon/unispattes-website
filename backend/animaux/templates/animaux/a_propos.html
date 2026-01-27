@@ -250,18 +250,23 @@
     <script>
         const burger = document.querySelector('.burger');
         const navLinks = document.querySelector('.nav-links');
+        const allLinks = document.querySelectorAll('.nav-links a');
 
-        burger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            burger.classList.toggle('toggle');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                burger.classList.remove('toggle');
+        // Ouvre/ferme le menu burger
+        if (burger && navLinks) {
+            burger.addEventListener('click', function() {
+                burger.classList.toggle('toggle');
+                navLinks.classList.toggle('active');
             });
-        });
+
+            // Ferme le menu quand on clique sur un lien
+            allLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    burger.classList.remove('toggle');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
     </script>
 
 </body>

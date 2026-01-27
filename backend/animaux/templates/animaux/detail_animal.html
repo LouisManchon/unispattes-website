@@ -134,7 +134,7 @@
 
                     <!-- DESCRIPTION / COMPORTEMENT -->
                     <div class="description-box">
-                        <h2>🐶 À propos de {{ animal.nom }}</h2>
+                        <h2>À propos de {{ animal.nom }}</h2>
                         <p>{{ animal.description|linebreaks }}</p>
                     </div>
 
@@ -142,11 +142,11 @@
                     <div class="action-buttons">
                         {% if animal.disponible %}
                         <a href="#formulaire-adoption" class="btn btn-primary btn-adopter">
-                            <span>❤️</span> Je veux l'adopter
+                            <span></span> Je veux l'adopter
                         </a>
                         {% else %}
                         <button class="btn btn-disabled" disabled>
-                            <span>✓</span> Déjà adopté
+                            <span></span> Déjà adopté
                         </button>
                         {% endif %}
 
@@ -380,20 +380,22 @@
             // NAVIGATION MOBILE (Burger menu)
             // ========================================
             const burger = document.querySelector('.burger');
-            const nav = document.querySelector('.nav-links');
-            const navLinks = document.querySelectorAll('.nav-links li');
+            const navLinks = document.querySelector('.nav-links');
+            const allLinks = document.querySelectorAll('.nav-links a');
 
-            if (burger) {
-                burger.addEventListener('click', () => {
-                    nav.classList.toggle('nav-active');
-                    navLinks.forEach((link, index) => {
-                        if (link.style.animation) {
-                            link.style.animation = '';
-                        } else {
-                            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-                        }
-                    });
+            // Ouvre/ferme le menu burger
+            if (burger && navLinks) {
+                burger.addEventListener('click', function() {
                     burger.classList.toggle('toggle');
+                    navLinks.classList.toggle('active');
+                });
+
+                // Ferme le menu quand on clique sur un lien
+                allLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        burger.classList.remove('toggle');
+                        navLinks.classList.remove('active');
+                    });
                 });
             }
 

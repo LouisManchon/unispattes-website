@@ -54,7 +54,7 @@
 
                     <!-- ✅ BOUTON TOGGLE -->
                     <div class="filtres-header">
-                        <h3>🔍 Filtres</h3>
+                        <h3>Filtres</h3>
                         <button class="toggle-filtres" aria-label="Ouvrir/Fermer les filtres">
                             <span class="toggle-icon">▼</span>
                         </button>
@@ -65,7 +65,7 @@
 
                         <!-- Filtre Nom -->
                         <div class="filtre-group">
-                            <h4>🔍 Nom de l'animal</h4>
+                            <h4>Nom de l'animal</h4>
                             <input
                                 type="text"
                                 id="search-name"
@@ -76,7 +76,7 @@
 
                         <!-- Filtre Espèce -->
                         <div class="filtre-group">
-                            <h4>🐾 Espèce</h4>
+                            <h4>Espèce</h4>
                             <label class="checkbox-label">
                                 <input type="checkbox" id="espece-chien" checked data-filter="chien">
                                 <span>Chiens</span>
@@ -89,7 +89,7 @@
 
                         <!-- Filtre Sexe -->
                         <div class="filtre-group">
-                            <h4>⚥ Sexe</h4>
+                            <h4>Sexe</h4>
                             <label class="radio-label">
                                 <input type="radio" name="sexe" value="tous" checked>
                                 <span>Tous</span>
@@ -106,7 +106,7 @@
 
                         <!-- Filtre Âge -->
                         <div class="filtre-group">
-                            <h4>🎂 Âge</h4>
+                            <h4>Âge</h4>
                             <label class="radio-label">
                                 <input type="radio" name="age" value="tous" checked>
                                 <span>Tous</span>
@@ -244,6 +244,29 @@
 
     <script src="{% static 'animaux/js/script.js' %}"></script>
     <script src="{% static 'animaux/js/filter.js' %}"></script>
+
+    <!-- ========== SCRIPT BURGER MENU ========== -->
+    <script>
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+        const allLinks = document.querySelectorAll('.nav-links a');
+
+        // Ouvre/ferme le menu burger
+        if (burger && navLinks) {
+            burger.addEventListener('click', function() {
+                burger.classList.toggle('toggle');
+                navLinks.classList.toggle('active');
+            });
+
+            // Ferme le menu quand on clique sur un lien
+            allLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    burger.classList.remove('toggle');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+    </script>
 
 </body>
 </html>

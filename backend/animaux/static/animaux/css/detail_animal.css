@@ -592,9 +592,9 @@ body {
   }
 
   /* Menu actif (visible) - CORRESPOND AU JAVASCRIPT */
-  .nav-links.nav-active {
-    transform: translateX(0);  /* ← Fait glisser le menu vers la gauche */
-  }
+  .nav-links.active {
+    transform: translateX(0);
+}
 
 
 
