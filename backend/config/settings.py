@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'animaux'
+    'animaux',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -124,7 +125,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
-# ⬇️ GARDE UNIQUEMENT CETTE LIGNE ⬇️
+
 STATICFILES_DIRS = [
     BASE_DIR / 'animaux' / 'static',
 ]
@@ -133,4 +134,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Media files (uploads futurs)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'  # ⬅️ Change aussi ça
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Configuration du modèle utilisateur personnalisé
+AUTH_USER_MODEL = 'users.Utilisateur'
