@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_interface',
+    'colorfield',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'animaux',
-    'users'
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +140,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # Configuration du modèle utilisateur personnalisé
 AUTH_USER_MODEL = 'users.Utilisateur'
+
+# URL de redirection pour login_required
+LOGIN_URL = 'users:connexion'
+
+# ✅ Configuration Admin Interface
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+SILENCED_SYSTEM_CHECKS = ['security.W019']

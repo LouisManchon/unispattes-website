@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - UniSpattes</title>
+    <link rel="stylesheet" href="{% static 'users/css/auth.css' %}">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h1>Inscription</h1>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="post" class="auth-form">
+                {% csrf_token %}
+
+                <input type="hidden" name="next" value="{{ next }}">
+
+                <!-- Champs d'inscription -->
+                <div class="form-group">
+                    <label for="id_first_name">Prénom</label>
+                    {{ form.first_name }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_last_name">Nom</label>
+                    {{ form.last_name }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_email">Email</label>
+                    {{ form.email }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_telephone">Téléphone (optionnel)</label>
+                    {{ form.telephone }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_adresse">Adresse (optionnel)</label>
+                    {{ form.adresse }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_password1">Mot de passe</label>
+                    {{ form.password1 }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_password2">Confirmer le mot de passe</label>
+                    {{ form.password2 }}
+                </div>
+
+
+
+                {% if form.errors %}
+                    <div class="alert alert-error">
+                        {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <button type="submit" class="btn-auth">S'inscrire</button>
+            </form>
+
+            <p class="auth-link">
+                Déjà un compte ? <a href="{% url 'users:connexion' %}?next={{ next }}">Se connecter</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

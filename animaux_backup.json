@@ -1,0 +1,138 @@
+[
+{
+  "model": "animaux.animal",
+  "pk": 1,
+  "fields": {
+    "nom": "Luna",
+    "espece": "CHAT",
+    "age_annees": 2,
+    "age_mois": 2,
+    "categorie_age": "adulte",
+    "sexe": "F",
+    "race": "Européen",
+    "description": "Luna est une chatte calme et observatrice, qui aime prendre le temps de découvrir son environnement. Douce et posée, elle apprécie la présence humaine sans être envahissante. Une fois en confiance, elle se montre affectueuse et proche de ses humains.\r\n\r\nElle conviendrait parfaitement à une personne ou une famille recherchant un chat tranquille, respectueux et attachant. Luna sera idéale pour un foyer calme, prêt à lui laisser le temps de s’adapter à son rythme.",
+    "photo": "animaux/cat-2603300_640_PLH8iQk.jpg",
+    "date_arrivee": "2026-01-25",
+    "disponible": true
+  }
+},
+{
+  "model": "animaux.animal",
+  "pk": 2,
+  "fields": {
+    "nom": "Charlie",
+    "espece": "CHIEN",
+    "age_annees": 1,
+    "age_mois": 6,
+    "categorie_age": "junior",
+    "sexe": "M",
+    "race": "Shiba Inu",
+    "description": "Charlie est un Shiba Inu au tempérament indépendant mais loyal, idéal pour les familles actives. Intelligent et calme, il apprécie les promenades quotidiennes tout en restant discret à la maison (aboie peu). Son caractère propre et équilibré convient parfaitement à la vie en appartement. Il s'adresse aux propriétaires ayant une première expérience canine et recherchant un compagnon affectueux mais respectueux de son espace.",
+    "photo": "animaux/shiba-inu-1134954_640_pZCorhq.jpg",
+    "date_arrivee": "2026-01-25",
+    "disponible": true
+  }
+},
+{
+  "model": "animaux.animal",
+  "pk": 3,
+  "fields": {
+    "nom": "Rex",
+    "espece": "CHIEN",
+    "age_annees": 0,
+    "age_mois": 4,
+    "categorie_age": "junior",
+    "sexe": "M",
+    "race": "Berger Allemand",
+    "description": "Rex est un adorable chiot Berger Allemand plein d'énergie et de curiosité. Intelligent et joueur, il sera un compagnon loyal et protecteur une fois adulte. Idéal pour les familles actives prêtes à investir du temps dans son éducation et sa socialisation.",
+    "photo": "animaux/german-shepherd-4614440_640_eSY7wP2.jpg",
+    "date_arrivee": "2026-01-25",
+    "disponible": true
+  }
+},
+{
+  "model": "animaux.animal",
+  "pk": 4,
+  "fields": {
+    "nom": "Perle",
+    "espece": "CHAT",
+    "age_annees": 0,
+    "age_mois": 2,
+    "categorie_age": "junior",
+    "sexe": "F",
+    "race": "Ragdoll",
+    "description": "Perle est une petite chatte au pelage crème et aux magnifiques yeux bleus, douce et affectueuse. Joueuse et curieuse, elle adore les câlins et s'adapte facilement à la vie de famille. Parfaite pour les familles avec enfants ou les personnes recherchant un premier chat câlin et facile à vivre.",
+    "photo": "animaux/kitten-5994369_640_ci19fzn.jpg",
+    "date_arrivee": "2026-01-25",
+    "disponible": true
+  }
+},
+{
+  "model": "animaux.animal",
+  "pk": 5,
+  "fields": {
+    "nom": "Félix",
+    "espece": "CHAT",
+    "age_annees": 7,
+    "age_mois": 5,
+    "categorie_age": "senior",
+    "sexe": "M",
+    "race": "Européen (tigré)",
+    "description": "Félix est un chat tigré au regard perçant et au tempérament calme et observateur. Indépendant mais affectueux à ses heures, il apprécie la tranquillité et convient aux personnes seules ou aux couples sans jeunes enfants. Parfait pour ceux qui recherchent un compagnon discret et autonome.",
+    "photo": "animaux/cats-eyes-2671903_640.jpg",
+    "date_arrivee": "2026-01-25",
+    "disponible": true
+  }
+},
+{
+  "model": "animaux.animal",
+  "pk": 6,
+  "fields": {
+    "nom": "Rocky",
+    "espece": "CHIEN",
+    "age_annees": 1,
+    "age_mois": 3,
+    "categorie_age": "junior",
+    "sexe": "M",
+    "race": "Golden Retriever",
+    "description": "Rocky est un chien dynamique et joueur qui adore les balles et les activités en extérieur. Affectueux et sociable, il s'entend bien avec les enfants et les autres animaux. Idéal pour une famille active recherchant un compagnon sportif et joyeux pour les balades et les jeux.",
+    "photo": "animaux/pexels-leon-aschemann-734730704-20449895.jpg",
+    "date_arrivee": "2026-01-25",
+    "disponible": true
+  }
+},
+{
+  "model": "animaux.animal",
+  "pk": 7,
+  "fields": {
+    "nom": "Milo",
+    "espece": "CHIEN",
+    "age_annees": 3,
+    "age_mois": 1,
+    "categorie_age": "adulte",
+    "sexe": "M",
+    "race": "Corgi",
+    "description": "Milo est un Corgi jovial et plein de vie avec son sourire contagieux. Intelligent et joueur, il s'adapte bien à la vie en appartement comme en maison. Idéal pour une famille ou une personne active recherchant un compagnon attachant, vif et sociable.",
+    "photo": "animaux/dog-9792620_640_ftYbpRS.jpg",
+    "date_arrivee": "2026-01-25",
+    "disponible": true
+  }
+},
+{
+  "model": "animaux.animal",
+  "pk": 8,
+  "fields": {
+    "nom": "Maya",
+    "espece": "CHIEN",
+    "age_annees": 0,
+    "age_mois": 4,
+    "categorie_age": "junior",
+    "sexe": "F",
+    "race": "Teckel",
+    "description": "Maya est une jeune chienne au regard irrésistible. Curieuse et affectueuse, elle sera une parfaite compagne de famille. Malgré sa petite taille, elle a une grande personnalité et adore les câlins et les jeux.",
+    "photo": "animaux/pexels-pixabay-257519_13lVdSc.jpg",
+    "date_arrivee": "2026-01-25",
+    "disponible": true
+  }
+}
+]

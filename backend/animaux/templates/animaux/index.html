@@ -22,6 +22,30 @@
                 <li><a href="{% url 'animaux:nos_animaux' %}">Nos animaux</a></li>
                 <li><a href="{% url 'animaux:a_propos' %}">À propos</a></li>
                 <li><a href="{% url 'animaux:accueil' %}#contact">Contact</a></li>
+
+                {% if user.is_authenticated %}
+                <!-- ✅ UTILISATEUR CONNECTÉ -->
+                    <li>
+                        <span class="user-greeting">
+                            👤 Bonjour {{ user.first_name|default:user.email }}
+                        </span>
+                    </li>
+                    <li>
+                        <a href="{% url 'users:deconnexion' %}" class="btn-logout">
+                            Se déconnecter
+                        </a>
+                    </li>
+                {% else %}
+                    <!-- ❌ UTILISATEUR NON CONNECTÉ -->
+                    <li>
+                        <a href="{% url 'users:connexion' %}?next={{ request.path }}" class="account-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </a>
+                    </li>
+                {% endif %}
             </ul>
 
             <div class="burger">

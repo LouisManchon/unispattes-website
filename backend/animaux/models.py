@@ -108,6 +108,16 @@ class DemandeAdoption(models.Model):
         verbose_name="Animal",
     )
 
+    utilisateur = models.ForeignKey(
+    'users.Utilisateur',
+    on_delete=models.CASCADE,
+    related_name='demandes_adoption',
+    verbose_name="Utilisateur",
+    null=True,  # Temporaire pour la migration
+    blank=True
+    )
+
+
     # ========================================
     # INFORMATIONS ADOPTANT
     # ========================================

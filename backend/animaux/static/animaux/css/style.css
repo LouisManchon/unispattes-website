@@ -81,6 +81,12 @@ body {
   padding: 0;
 }
 
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+/* 🔗 TOUS LES LIENS (y compris déconnexion) */
 .nav-links a {
   color: #b95e3a;
   font-weight: 600;
@@ -91,7 +97,7 @@ body {
   transition: color 0.3s ease;
 }
 
-/* Soulignement animé */
+/* Soulignement animé sur TOUS les liens */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -111,6 +117,64 @@ body {
 .nav-links a:hover {
   color: #A0826D;
 }
+
+/* ===========================
+   👤 "Bonjour Jean" - STYLE COMME LES AUTRES
+   =========================== */
+.user-greeting {
+  color: #b95e3a !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  font-family: 'Merriweather', serif !important;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  position: relative;
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+/* Soulignement animé sur "Bonjour Jean" au survol */
+.user-greeting::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #A0826D;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.user-greeting:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.user-greeting:hover {
+  color: #A0826D !important;
+}
+
+/* ===========================
+   👤 ICÔNE COMPTE (non connecté)
+   =========================== */
+.account-icon {
+  display: flex;
+  align-items: center;
+  color: #b95e3a !important;
+  transition: color 0.3s ease;
+  text-decoration: none !important;
+}
+
+.account-icon:hover {
+  color: #A0826D !important;
+}
+
+.account-icon svg {
+  stroke: currentColor;
+}
+
 
 /* ========================================
    BURGER MENU
