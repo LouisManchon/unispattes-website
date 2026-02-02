@@ -686,44 +686,44 @@ body {
 }
 
 /* ========================================
-   RESPONSIVE MOBILE (< 768px)
+   RESPONSIVE TABLETTE + MOBILE (≤ 1024px)
 ======================================== */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
-  .navbar {
-    padding: 0 20px;
-    height: 70px;
-  }
-
+  /* 🍔 AFFICHE LE BURGER */
   .burger {
     display: flex;
     margin-left: auto;
   }
 
+  /* 📱 MENU LATÉRAL */
   .nav-links {
     position: fixed;
     right: -100%;
     top: 0;
     height: 100vh;
     width: 70%;
-    max-width: 300px;
+    max-width: 350px;
     background-color: #f5ddc4;
     flex-direction: column;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
     transition: right 0.3s ease-in-out;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    padding: 40px 20px;
   }
 
   .nav-links.active {
     right: 0;
   }
 
+  /* ❌ DÉSACTIVE LE SOULIGNEMENT ANIMÉ EN MODE MOBILE */
   .nav-links a::after {
     display: none;
   }
 
+  /* ✖️ ANIMATION DU BURGER EN CROIX */
   .burger.toggle .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
   }
@@ -736,6 +736,40 @@ body {
     transform: rotate(45deg) translate(-5px, -6px);
   }
 
+  /* 👤 USER INFO EN COLONNE */
+  .user-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+  }
+
+  /* 📐 AJUSTEMENTS DES GRIDS */
+  .animaux-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .etapes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-column:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ========================================
+   RESPONSIVE MOBILE UNIQUEMENT (≤ 768px)
+======================================== */
+@media (max-width: 768px) {
+
+  /* 📏 LOGO PLUS PETIT */
   .logo-icon {
     font-size: 1.5rem;
   }
@@ -744,7 +778,7 @@ body {
     font-size: 1.2rem;
   }
 
-  /* Hero */
+  /* 🏞️ HERO */
   .hero {
     height: 600px;
   }
@@ -763,7 +797,7 @@ body {
     font-size: 1rem;
   }
 
-  /* À propos */
+  /* 📖 À PROPOS */
   .about-grid {
     grid-template-columns: 1fr;
     gap: 50px;
@@ -785,52 +819,22 @@ body {
     justify-content: center;
   }
 
-  /* Animaux */
+  /* 🐾 ANIMAUX EN 1 COLONNE */
   .animaux-grid {
     grid-template-columns: 1fr;
     gap: 50px;
   }
 
-  /* Étapes */
+  /* 📋 ÉTAPES EN 1 COLONNE */
   .etapes-grid {
     grid-template-columns: 1fr;
     gap: 60px;
   }
 
-  /* Footer */
+  /* 📧 FOOTER EN 1 COLONNE */
   .footer-content {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-}
-
-/* ========================================
-   RESPONSIVE TABLETTE (769px - 1024px)
-======================================== */
-@media (min-width: 769px) and (max-width: 1024px) {
-
-  .nav-links {
-    gap: 20px;
-  }
-
-  .nav-links a {
-    font-size: 1rem;
-  }
-
-  .animaux-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .etapes-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .footer-column:first-child {
-    grid-column: 1 / -1;
   }
 }
 

@@ -671,64 +671,6 @@ body {
 }
 
 /* ========================================
-   RESPONSIVE TABLETTE (769px - 1024px)
-======================================== */
-@media (min-width: 769px) and (max-width: 1024px) {
-
-  .nav-links {
-    gap: 20px;
-  }
-
-  .nav-links a {
-    font-size: 1rem;
-  }
-
-  .detail-wrapper {
-    grid-template-columns: 1fr;
-    gap: 50px;
-    padding: 40px;
-  }
-
-  .animal-photo {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .caracteristiques-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .footer-column:first-child {
-    grid-column: 1 / -1;
-  }
-}
-
-/* ========================================
-   RESPONSIVE GRAND ÉCRAN (> 1400px)
-======================================== */
-@media (min-width: 1400px) {
-
-  .detail-wrapper {
-    max-width: 1400px;
-    padding: 60px;
-  }
-
-  .animal-photo {
-    height: 600px;
-  }
-
-  .caracteristiques-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-  }
-}
-
-
-/* ========================================
    FORMULAIRE D'ADOPTION
 ======================================== */
 .formulaire-adoption {
@@ -981,4 +923,164 @@ select.error {
     background: #8B4513;
     color: white;
     border-color: #8B4513;
+}
+
+/* ========================================
+   RESPONSIVE TABLETTE + MOBILE (≤ 1024px)
+======================================== */
+@media (max-width: 1024px) {
+
+  /* 🍔 AFFICHE LE BURGER */
+  .burger {
+    display: flex;
+    margin-left: auto;
+  }
+
+  /* 📱 MENU LATÉRAL */
+  .nav-links {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 350px;
+    background-color: #f5ddc4;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 40px 20px;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  /* ❌ DÉSACTIVE LE SOULIGNEMENT ANIMÉ EN MODE MOBILE */
+  .nav-links a::after {
+    display: none;
+  }
+
+  /* ✖️ ANIMATION DU BURGER EN CROIX */
+  .burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .burger.toggle .line2 {
+    opacity: 0;
+  }
+
+  .burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /* 👤 USER INFO EN COLONNE */
+  .user-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+  }
+
+  /* 📐 AJUSTEMENTS DES GRIDS */
+  .animaux-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .etapes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-column:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ========================================
+   RESPONSIVE MOBILE UNIQUEMENT (≤ 768px)
+======================================== */
+@media (max-width: 768px) {
+
+  /* 📏 LOGO PLUS PETIT */
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  /* 🏞️ HERO */
+  .hero {
+    height: 600px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero .btn {
+    top: 80px;
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  /* 📖 À PROPOS */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .texte-gauche {
+    padding-right: 0;
+  }
+
+  .texte-gauche h2 {
+    font-size: 2.2rem;
+  }
+
+  .texte-gauche p {
+    font-size: 1.1rem;
+  }
+
+  .image-droite {
+    justify-content: center;
+  }
+
+  /* 🐾 ANIMAUX EN 1 COLONNE */
+  .animaux-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  /* 📋 ÉTAPES EN 1 COLONNE */
+  .etapes-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  /* 📧 FOOTER EN 1 COLONNE */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ========================================
+   SMOOTH SCROLL POUR ANCRES
+======================================== */
+html {
+  scroll-behavior: smooth;
 }

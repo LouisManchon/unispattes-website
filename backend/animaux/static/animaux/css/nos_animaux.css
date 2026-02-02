@@ -782,86 +782,6 @@ body {
   margin: 0;
 }
 
-
-/* ========================================
-   RESPONSIVE MOBILE (< 768px)
-======================================== */
-@media (max-width: 768px) {
-
-  /* NAVBAR */
-  .navbar {
-    padding: 0 20px;
-    height: 70px;
-  }
-
-  .burger {
-    display: flex;
-    margin-left: auto;
-  }
-
-  .nav-links {
-    position: fixed;
-    right: -100%;
-    top: 0;
-    height: 100vh;
-    width: 70%;
-    max-width: 300px;
-    background-color: #f5ddc4;
-    flex-direction: column;
-    justify-content: center;
-    gap: 40px;
-    transition: right 0.3s ease-in-out;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-
-  .nav-links.active {
-    right: 0;
-  }
-
-  .nav-links a::after {
-    display: none;
-  }
-
-  .burger.toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-
-  .burger.toggle .line2 {
-    opacity: 0;
-  }
-
-  .burger.toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
-
-  .logo-icon {
-    font-size: 1.5rem;
-  }
-
-  .logo-text {
-    font-size: 1.2rem;
-  }
-
-  /* HERO ANIMAUX */
-  .hero-animaux {
-    padding: 50px 0;
-  }
-
-  .hero-animaux h1 {
-    font-size: 2rem;
-  }
-
-  /* LAYOUT 1 COLONNE (filtres au-dessus) */
-  .content-wrapper {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .filtres-sidebar {
-    position: static;
-  }
-
   /* ========================================
      🆕 ACCORDÉON FILTRES MOBILE
   ======================================== */
@@ -918,23 +838,60 @@ body {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-}
 
 
 /* ========================================
-   RESPONSIVE TABLETTE (769px - 1024px)
+   RESPONSIVE TABLETTE + MOBILE (≤ 1024px)
 ======================================== */
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
 
+  /* 🍔 AFFICHE LE BURGER */
+  .burger {
+    display: flex;
+    margin-left: auto;
+  }
+
+  /* 📱 MENU LATÉRAL */
   .nav-links {
-    gap: 20px;
+    position: fixed;
+    right: -100%;
+    top: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 350px;
+    background-color: #f5ddc4;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 40px 20px;
   }
 
-  .nav-links a {
-    font-size: 1rem;
+  .nav-links.active {
+    right: 0;
   }
 
-  /* LAYOUT TABLETTE */
+  /* ❌ DÉSACTIVE LE SOULIGNEMENT ANIMÉ */
+  .nav-links a::after {
+    display: none;
+  }
+
+  /* ✖️ ANIMATION DU BURGER EN CROIX */
+  .burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .burger.toggle .line2 {
+    opacity: 0;
+  }
+
+  .burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /* 📐 LAYOUT TABLETTE (filtres + grille) */
   .content-wrapper {
     grid-template-columns: 250px 1fr;
     gap: 30px;
@@ -954,7 +911,7 @@ body {
     height: 260px;
   }
 
-  /* FOOTER */
+  /* FOOTER 2 COLONNES */
   .footer-content {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -962,6 +919,84 @@ body {
 
   .footer-column:first-child {
     grid-column: 1 / -1;
+  }
+}
+
+/* ========================================
+   RESPONSIVE MOBILE UNIQUEMENT (≤ 768px)
+======================================== */
+@media (max-width: 768px) {
+
+  /* 📏 LOGO PLUS PETIT */
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  /* 🏞️ HERO ANIMAUX */
+  .hero-animaux {
+    padding: 50px 0;
+  }
+
+  .hero-animaux h1 {
+    font-size: 2rem;
+  }
+
+  /* 📐 LAYOUT 1 COLONNE (filtres au-dessus) */
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .filtres-sidebar {
+    position: static;
+  }
+
+  /* 🎯 ACCORDÉON FILTRES MOBILE */
+  .filtres-header {
+    display: flex;
+  }
+
+  .filtres-content {
+    display: none;
+    animation: slideDown 0.3s ease;
+  }
+
+  .filtres-content.active {
+    display: block;
+  }
+
+  .toggle-filtres.active .toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  /* GRILLE 1 COLONNE */
+  .animaux-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .card-image {
+    height: 250px;
+  }
+
+  /* BOUTONS EN COLONNE */
+  .filter-buttons {
+    flex-direction: column;
+  }
+
+  .btn-rechercher,
+  .btn-reinitialiser {
+    width: 100%;
+  }
+
+  /* FOOTER 1 COLONNE */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 }
 

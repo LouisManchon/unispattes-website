@@ -583,83 +583,6 @@ body {
   margin: 0;
 }
 
-/* ========================================
-   RESPONSIVE MOBILE (< 768px)
-======================================== */
-@media (max-width: 768px) {
-
-  /* ========== NAVBAR ========== */
-  .navbar {
-    padding: 0 20px;
-    justify-content: space-between;
-  }
-
-  .burger {
-    display: flex !important;
-    margin-left: auto;
-    z-index: 2000;
-  }
-
-  .nav-links {
-    position: fixed;
-    right: -100%;
-    top: 0;
-    height: 100vh;
-    width: 70%;
-    max-width: 300px;
-    background-color: #f5ddc4;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    padding: 0;
-    margin: 0;
-    transition: right 0.4s ease-in-out;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    z-index: 1500;
-  }
-
-  .nav-links.active {
-    right: 0 !important;
-  }
-
-  .nav-links li {
-    list-style: none;
-    width: 100%;
-    text-align: center;
-  }
-
-  .nav-links a {
-    display: block;
-    padding: 15px;
-    font-size: 1.1rem;
-    color: #5d4037;
-  }
-
-  .nav-links a::after {
-    display: none;
-  }
-
-  .burger.toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-
-  .burger.toggle .line2 {
-    opacity: 0;
-  }
-
-  .burger.toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
-
-  .logo-icon {
-    font-size: 1.5rem;
-  }
-
-  .logo-text {
-    font-size: 1.2rem;
-  }
-
   /* ========== HERO ========== */
   .hero-apropos {
     padding: 80px 20px 60px 20px;
@@ -803,27 +726,254 @@ body {
   .footer-description {
     font-size: 0.95rem;
   }
-}
+
 
 /* ========================================
-   RESPONSIVE TABLETTE (769px - 1024px)
+   RESPONSIVE TABLETTE + MOBILE (≤ 1024px)
 ======================================== */
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
 
+  /* 🍔 AFFICHE LE BURGER */
+  .burger {
+    display: flex !important;
+    margin-left: auto;
+    z-index: 2000;
+  }
+
+  /* 📱 MENU LATÉRAL */
   .nav-links {
-    gap: 20px;
+    position: fixed;
+    right: -100%;
+    top: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 350px;
+    background-color: #f5ddc4;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 20px;
+    transition: right 0.4s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1500;
   }
 
-  .nav-links a {
-    font-size: 1rem;
+  .nav-links.active {
+    right: 0 !important;
   }
 
+  /* ❌ DÉSACTIVE LE SOULIGNEMENT ANIMÉ */
+  .nav-links a::after {
+    display: none;
+  }
+
+  /* ✖️ ANIMATION DU BURGER EN CROIX */
+  .burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .burger.toggle .line2 {
+    opacity: 0;
+  }
+
+  .burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /* 📐 COLONNES EN 2 COLONNES POUR TABLETTE */
+  .colonnes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  /* 🧑‍🤝‍🧑 ÉQUIPE EN 2 COLONNES */
+  .equipe-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  /* 📊 CHIFFRES EN 2 COLONNES */
+  .chiffres-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  /* 📧 FOOTER EN 2 COLONNES */
   .footer-content {
     grid-template-columns: 1fr 1fr;
   }
 
   .footer-column:first-child {
     grid-column: 1 / -1;
+  }
+}
+
+/* 🎯 CENTRAGE DU BOUTON CTA */
+  .cta-buttons {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+
+/* ========================================
+   RESPONSIVE MOBILE UNIQUEMENT (≤ 768px)
+======================================== */
+@media (max-width: 768px) {
+
+  /* 📏 LOGO PLUS PETIT */
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  /* 🏞️ HERO */
+  .hero-apropos {
+    padding: 80px 20px 60px 20px;
+  }
+
+  .hero-apropos-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-apropos-content p {
+    font-size: 1rem;
+  }
+
+  /* 📐 COLONNES EN 1 COLONNE */
+  .apropos-colonnes {
+    padding: 60px 20px;
+  }
+
+  .colonnes-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .colonne-card {
+    padding: 30px 20px;
+  }
+
+  .colonne-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .colonne-card p {
+    font-size: 1rem;
+  }
+
+  /* 🧑‍🤝‍🧑 ÉQUIPE EN 1 COLONNE */
+  .equipe-section {
+    padding: 60px 20px;
+  }
+
+  .equipe-header h2 {
+    font-size: 2rem;
+  }
+
+  .equipe-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .equipe-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .equipe-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .equipe-nom {
+    font-size: 1.2rem;
+  }
+
+  .equipe-role {
+    font-size: 0.8rem;
+  }
+
+  .equipe-bio {
+    font-size: 0.9rem;
+  }
+
+  /* 📊 CHIFFRES EN 2 COLONNES (reste inchangé mobile) */
+  .chiffres-cles {
+    padding: 60px 20px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .chiffres-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .chiffre-card {
+    padding: 30px 15px;
+  }
+
+  .chiffre-numero {
+    font-size: 2.5rem;
+  }
+
+  .chiffre-card p {
+    font-size: 0.95rem;
+  }
+
+  /* 🎯 CTA FINAL */
+  .cta-final {
+    padding: 60px 20px;
+  }
+
+  .cta-final h2 {
+    font-size: 2rem;
+  }
+
+  .cta-final p {
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  /* 📧 FOOTER EN 1 COLONNE */
+  .main-footer {
+    padding: 60px 0 0 0;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-column h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-logo .logo-text {
+    font-size: 1.2rem;
+  }
+
+  .footer-description {
+    font-size: 0.95rem;
   }
 }
 
