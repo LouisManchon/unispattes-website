@@ -4,14 +4,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
 /* ========================================
-   SMOOTH SCROLL POUR ANCRES
+   SMOOTH SCROLL
 ======================================== */
 html, body {
   scroll-behavior: smooth;
 }
 
 /* ========================================
-   RESET ET BASE
+   RESET
 ======================================== */
 * {
   margin: 0;
@@ -120,7 +120,7 @@ body {
 }
 
 /* ========================================
-   BURGER MENU
+   BURGER MENU (caché par défaut)
 ======================================== */
 .burger {
   display: none;
@@ -162,7 +162,7 @@ body {
   background-color: #f5ddc4;
 }
 
-/* Layout 2 colonnes : Filtres (280px) + Grille (reste) */
+/* ✅ LAYOUT DESKTOP : Filtres (280px) + Grille (reste) */
 .content-wrapper {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -171,7 +171,7 @@ body {
 }
 
 /* ========================================
-   FILTRES SIDEBAR (GAUCHE)
+   FILTRES SIDEBAR
 ======================================== */
 .filtres-sidebar {
   background-color: white;
@@ -180,6 +180,11 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 120px;
+}
+
+/* ❌ HEADER ACCORDÉON (caché par défaut sur desktop) */
+.filtres-header {
+  display: none;
 }
 
 .filtres-sidebar h3 {
@@ -208,7 +213,7 @@ body {
 }
 
 /* ========================================
-   BARRE DE RECHERCHE NOM
+   BARRE DE RECHERCHE
 ======================================== */
 .search-input {
   width: 100%;
@@ -261,7 +266,7 @@ body {
 }
 
 /* ========================================
-   CONTENEUR BOUTONS
+   BOUTONS FILTRES
 ======================================== */
 .filter-buttons {
   display: flex;
@@ -270,12 +275,9 @@ body {
   margin-top: 25px;
 }
 
-/* ========================================
-   STYLES COMMUNS AUX DEUX BOUTONS
-======================================== */
 .btn-rechercher,
 .btn-reinitialiser {
-  width: 100%;                   /* ⬅️ PREND TOUTE LA LARGEUR */
+  width: 100%;
   background-color: white;
   color: #b95e3a;
   border: 2px solid #b95e3a;
@@ -286,14 +288,8 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: 'Merriweather', serif;
-  white-space: nowrap;             /* ⬅️ EMPÊCHE LE TEXTE DE SE COUPER */
-  overflow: hidden;                /* ⬅️ CACHE LE DÉBORDEMENT */
-  text-overflow: ellipsis;         /* ⬅️ AJOUTE ... SI TROP LONG */
 }
 
-/* ========================================
-   HOVER IDENTIQUE POUR LES DEUX
-======================================== */
 .btn-rechercher:hover,
 .btn-reinitialiser:hover {
   background: linear-gradient(135deg, #b95e3a 0%, #A0826D 100%);
@@ -303,17 +299,13 @@ body {
   box-shadow: 0 6px 15px rgba(185, 94, 58, 0.3);
 }
 
-/* ========================================
-   EFFET CLIC
-======================================== */
 .btn-rechercher:active,
 .btn-reinitialiser:active {
   transform: translateY(0);
 }
 
-
 /* ========================================
-   GRILLE ANIMAUX (3 COLONNES)
+   GRILLE ANIMAUX (3 colonnes par défaut)
 ======================================== */
 .animaux-grid {
   display: grid;
@@ -341,7 +333,6 @@ body {
   box-shadow: 0 8px 25px rgba(139, 90, 60, 0.2);
 }
 
-/* Image - Hauteur fixe pour alignement */
 .card-image {
   width: 100%;
   height: 280px;
@@ -364,7 +355,7 @@ body {
 }
 
 /* ========================================
-   INFO CARTE ANIMAL
+   INFO CARTE
 ======================================== */
 .card-info {
   padding: 20px;
@@ -395,9 +386,6 @@ body {
   font-weight: 400;
 }
 
-/* ========================================
-   BOUTON "EN SAVOIR PLUS"
-======================================== */
 .btn-savoir-plus {
   display: inline-block;
   background-color: #b95e3a;
@@ -440,9 +428,6 @@ body {
   font-weight: 700;
   color: #F5EBE0;
   margin-bottom: 20px;
-  min-height: 45px;
-  display: flex;
-  align-items: center;
 }
 
 .footer-logo {
@@ -450,7 +435,6 @@ body {
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
-  min-height: 45px;
 }
 
 .footer-logo .logo-icon {
@@ -563,295 +547,17 @@ body {
   margin: 0;
 }
 
-
 /* ========================================
-   ACCORDÉON FILTRES (header + toggle)
+   RESPONSIVE TABLETTE (769px - 1024px)
 ======================================== */
-.filtres-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 2px solid #f0f0f0;
-  cursor: pointer;
-}
-
-.filtres-header h3 {
-  margin-bottom: 0;
-  font-size: 1.3rem;
-  color: #b95e3a;
-}
-
-.toggle-filtres {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  transition: transform 0.3s ease;
-}
-
-.toggle-icon {
-  font-size: 1.5rem;
-  color: #b95e3a;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-/* ========================================
-   CONTENU DES FILTRES
-======================================== */
-.filtres-content {
-  display: none;                    /* ⬅️ FERMÉ PAR DÉFAUT */
-  animation: slideDown 0.3s ease;
-}
-
-.filtres-content.active {
-  display: block;                   /* ⬅️ OUVERT SI .active */
-}
-
-.toggle-filtres.active .toggle-icon {
-  transform: rotate(180deg);        /* ⬅️ FLÈCHE TOURNE */
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ========================================
-   COMPTEUR RÉSULTATS (optionnel)
-======================================== */
-.compteur-resultats {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.1rem;
-  color: #b95e3a;
-  font-weight: 600;
-}
-
-/* ========================================
-   FOOTER
-======================================== */
-.main-footer {
-  background-color: #8B6F47;
-  color: #F5EBE0;
-  padding: 80px 0 0 0;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 50px;
-  align-items: start;
-}
-
-.footer-column h3 {
-  font-family: 'Merriweather', serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #F5EBE0;
-  margin-bottom: 20px;
-  min-height: 45px;
-  display: flex;
-  align-items: center;
-}
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-  min-height: 45px;
-}
-
-.footer-logo .logo-icon {
-  font-size: 2rem;
-}
-
-.footer-logo .logo-text {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #F5EBE0;
-  font-family: 'Merriweather', serif;
-}
-
-.footer-description {
-  font-family: 'Merriweather', serif;
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.8;
-  color: #E8D5C4;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links li {
-  margin-bottom: 12px;
-}
-
-.footer-links a {
-  font-family: 'Merriweather', serif;
-  font-size: 1rem;
-  font-weight: 300;
-  color: #E8D5C4;
-  text-decoration: none;
-  transition: color 0.3s ease, padding-left 0.3s ease;
-  display: inline-block;
-}
-
-.footer-links a:hover {
-  color: #F5EBE0;
-  padding-left: 5px;
-}
-
-.footer-contact {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-contact li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 18px;
-  font-family: 'Merriweather', serif;
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: #E8D5C4;
-  line-height: 1.6;
-}
-
-.footer-contact svg {
-  width: 20px;
-  height: 20px;
-  color: #F5DDC4;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.footer-social {
-  display: flex;
-  gap: 15px;
-  margin-top: 25px;
-}
-
-.footer-social a {
-  width: 40px;
-  height: 40px;
-  background-color: #A0826D;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.footer-social a:hover {
-  background-color: #b95e3a;
-  transform: translateY(-3px);
-}
-
-.footer-social svg {
-  width: 20px;
-  height: 20px;
-  color: #F5EBE0;
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(245, 235, 224, 0.2);
-  padding: 25px 0;
-  text-align: center;
-}
-
-.footer-bottom p {
-  font-family: 'Merriweather', serif;
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: #E8D5C4;
-  margin: 0;
-}
-
-  /* ========================================
-     🆕 ACCORDÉON FILTRES MOBILE
-  ======================================== */
-  .filtres-header {
-    display: flex;                  /* ⬅️ AFFICHE LE HEADER MOBILE */
-  }
-
-  .filtres-content {
-    display: none;                  /* ⬅️ CACHÉ PAR DÉFAUT */
-    animation: slideDown 0.3s ease;
-  }
-
-  .filtres-content.active {
-    display: block;                 /* ⬅️ VISIBLE QUAND OUVERT */
-  }
-
-  .toggle-filtres.active .toggle-icon {
-    transform: rotate(180deg);      /* ⬅️ ROTATION FLÈCHE */
-  }
-
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* GRILLE 1 COLONNE */
-  .animaux-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .card-image {
-    height: 250px;
-  }
-
-  /* BOUTONS EN COLONNE */
-  .filter-buttons {
-    flex-direction: column;
-  }
-
-  .btn-rechercher,
-  .btn-reinitialiser {
-    width: 100%;
-  }
-
-  /* FOOTER */
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-
-/* ========================================
-   RESPONSIVE TABLETTE + MOBILE (≤ 1024px)
-======================================== */
-@media (max-width: 1024px) {
-
-  /* 🍔 AFFICHE LE BURGER */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Burger visible */
   .burger {
     display: flex;
     margin-left: auto;
   }
 
-  /* 📱 MENU LATÉRAL */
+  /* Menu latéral */
   .nav-links {
     position: fixed;
     right: -100%;
@@ -873,12 +579,11 @@ body {
     right: 0;
   }
 
-  /* ❌ DÉSACTIVE LE SOULIGNEMENT ANIMÉ */
   .nav-links a::after {
     display: none;
   }
 
-  /* ✖️ ANIMATION DU BURGER EN CROIX */
+  /* Animation burger */
   .burger.toggle .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
   }
@@ -891,13 +596,12 @@ body {
     transform: rotate(45deg) translate(-5px, -6px);
   }
 
-  /* 📐 LAYOUT TABLETTE (filtres + grille) */
+  /* Layout filtres + grille 2 colonnes */
   .content-wrapper {
     grid-template-columns: 250px 1fr;
     gap: 30px;
   }
 
-  /* GRILLE 2 COLONNES */
   .animaux-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
@@ -911,7 +615,7 @@ body {
     height: 260px;
   }
 
-  /* FOOTER 2 COLONNES */
+  /* Footer 2 colonnes */
   .footer-content {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -923,11 +627,55 @@ body {
 }
 
 /* ========================================
-   RESPONSIVE MOBILE UNIQUEMENT (≤ 768px)
+   RESPONSIVE MOBILE (≤ 768px)
 ======================================== */
 @media (max-width: 768px) {
+  /* Burger visible */
+  .burger {
+    display: flex;
+    margin-left: auto;
+  }
 
-  /* 📏 LOGO PLUS PETIT */
+  /* Menu latéral */
+  .nav-links {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 350px;
+    background-color: #f5ddc4;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 40px 20px;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  /* Animation burger */
+  .burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .burger.toggle .line2 {
+    opacity: 0;
+  }
+
+  .burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /* Logo plus petit */
   .logo-icon {
     font-size: 1.5rem;
   }
@@ -936,7 +684,7 @@ body {
     font-size: 1.2rem;
   }
 
-  /* 🏞️ HERO ANIMAUX */
+  /* Hero */
   .hero-animaux {
     padding: 50px 0;
   }
@@ -945,7 +693,7 @@ body {
     font-size: 2rem;
   }
 
-  /* 📐 LAYOUT 1 COLONNE (filtres au-dessus) */
+  /* Layout 1 colonne */
   .content-wrapper {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -955,9 +703,36 @@ body {
     position: static;
   }
 
-  /* 🎯 ACCORDÉON FILTRES MOBILE */
+  /* ✅ ACCORDÉON FILTRES MOBILE */
   .filtres-header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    cursor: pointer;
+  }
+
+  .filtres-header h3 {
+    margin-bottom: 0;
+    font-size: 1.3rem;
+    color: #b95e3a;
+  }
+
+  .toggle-filtres {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .toggle-icon {
+    font-size: 1.5rem;
+    color: #b95e3a;
+    display: block;
+    transition: transform 0.3s ease;
   }
 
   .filtres-content {
@@ -973,7 +748,18 @@ body {
     transform: rotate(180deg);
   }
 
-  /* GRILLE 1 COLONNE */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Grille 1 colonne */
   .animaux-grid {
     grid-template-columns: 1fr;
     gap: 25px;
@@ -983,7 +769,7 @@ body {
     height: 250px;
   }
 
-  /* BOUTONS EN COLONNE */
+  /* Boutons en colonne */
   .filter-buttons {
     flex-direction: column;
   }
@@ -993,7 +779,7 @@ body {
     width: 100%;
   }
 
-  /* FOOTER 1 COLONNE */
+  /* Footer 1 colonne */
   .footer-content {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1001,7 +787,7 @@ body {
 }
 
 /* ========================================
-   RESPONSIVE GRAND ÉCRAN (> 1400px)
+   GRAND ÉCRAN (> 1400px)
 ======================================== */
 @media (min-width: 1400px) {
   .container {

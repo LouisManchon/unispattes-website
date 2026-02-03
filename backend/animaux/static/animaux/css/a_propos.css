@@ -978,6 +978,54 @@ body {
 }
 
 /* ========================================
+   CORRECTION GRAND ÉCRAN (≥ 1200px)
+   Force les layouts horizontaux
+======================================== */
+@media (min-width: 1200px) {
+
+  /* ===== NAVBAR ===== */
+  .nav-links {
+    position: static;
+    height: auto;
+    width: auto;
+    flex-direction: row;
+    background: none;
+    box-shadow: none;
+    gap: 32px;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  /* ===== COLONNES A PROPOS ===== */
+  .colonnes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* ===== ÉQUIPE ===== */
+  .equipe-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* ===== CHIFFRES CLÉS ===== */
+  .chiffres-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* ===== CTA ===== */
+  .cta-buttons {
+    flex-direction: row;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer-content {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
+/* ========================================
    SMOOTH SCROLL POUR ANCRES
 ======================================== */
 html {
