@@ -29,8 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
-
+# Liste des applications installées dans le projet
 INSTALLED_APPS = [
     'admin_interface',
     'colorfield',
