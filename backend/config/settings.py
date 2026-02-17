@@ -44,6 +44,24 @@ INSTALLED_APPS = [
     'users',
 ]
 
+# Modèle utilisateur personnalisé
+AUTH_USER_MODEL = 'users.Utilisateur'
+
+# Base de données
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('DB_NAME', 'unispattes_db'),
+        'USER': os.environ.get('DB_USER', 'unispattes_user'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'root'),
+        'HOST': os.environ.get('DB_HOST', 'db'),
+        'PORT': os.environ.get('DB_PORT', '3306'),
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        },
+    }
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -72,25 +90,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
-
-# Database
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DB_NAME', 'unispattes_db'),
-        'USER': os.environ.get('DB_USER', 'unispattes_user'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'root'),
-        'HOST': os.environ.get('DB_HOST', 'db'),
-        'PORT': os.environ.get('DB_PORT', '3306'),
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        },
-    }
-}
-
 
 
 # Password validation
@@ -137,9 +136,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Media files (uploads futurs)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
-# Configuration du modèle utilisateur personnalisé
-AUTH_USER_MODEL = 'users.Utilisateur'
 
 # URL de redirection pour login_required
 LOGIN_URL = 'users:connexion'
