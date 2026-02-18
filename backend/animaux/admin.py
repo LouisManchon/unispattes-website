@@ -129,8 +129,6 @@ class DemandeAdoptionAdmin(admin.ModelAdmin):
     get_statut_colored.short_description = '📊 Statut'
     get_statut_colored.admin_order_field = 'statut'
 
-    from django.utils.safestring import mark_safe
-
     def get_boutons_action(self, obj):
         """Boutons rapides Accepter/Refuser"""
         if obj.statut == 'EN_ATTENTE':
