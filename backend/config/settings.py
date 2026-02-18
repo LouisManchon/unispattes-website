@@ -142,3 +142,5 @@ LOGIN_URL = 'users:connexion'
 # ✅ Configuration Admin Interface
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 SILENCED_SYSTEM_CHECKS = ['security.W019']
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
