@@ -124,6 +124,48 @@ body {
   color: #A0826D;
 }
 
+/* ===========================
+   👤 "Bonjour user" - STYLE COMME SUR L'ACCUEIL
+   =========================== */
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.user-greeting {
+  color: #b95e3a !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  font-family: 'Merriweather', serif !important;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  position: relative;
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+.user-greeting::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #A0826D;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.user-greeting:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.user-greeting:hover {
+  color: #A0826D !important;
+}
+
 /* ========================================
    BURGER MENU
 ======================================== */
