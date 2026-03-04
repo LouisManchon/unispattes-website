@@ -113,8 +113,6 @@ class DemandeAdoption(models.Model):
     on_delete=models.CASCADE,
     related_name='demandes_adoption',
     verbose_name="Utilisateur",
-    null=True,  # Temporaire pour la migration
-    blank=True
     )
 
 
