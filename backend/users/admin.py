@@ -10,7 +10,7 @@ def nombre_demandes(obj):
         return DemandeAdoption.objects.filter(utilisateur=obj).count()
     except Exception as e:
         return f"Erreur: {e}"
-nombre_demandes.short_description = "📋 Demandes"
+nombre_demandes.short_description = "Demandes"
 
 
 class DemandeAdoptionInline(admin.TabularInline):
@@ -142,16 +142,16 @@ class UtilisateurAdmin(UserAdmin):
     search_fields = ('email', 'first_name', 'last_name', 'telephone')
 
     fieldsets = (
-        ('🔐 Identification', {
+        ('Identification', {
             'fields': ('email', 'password')
         }),
-        ('👤 Informations personnelles', {
+        ('Informations personnelles', {
             'fields': ('first_name', 'last_name', 'telephone', 'adresse')
         }),
-        ('🔒 Permissions', {
+        ('Permissions', {
             'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')
         }),
-        ('🔒 Sécurité', {
+        ('Sécurité', {
             'fields': ('tentatives_connexion', 'compte_verrouille', 'date_inscription')
         }),
     )
