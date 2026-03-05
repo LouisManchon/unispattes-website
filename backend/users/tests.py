@@ -30,7 +30,7 @@ class UtilisateurTests(TestCase):
 
     def test_connexion_utilisateur(self):
         response = self.client.post(reverse('users:connexion'), {
-            'username': 'testuser@example.com',  # email utilisé comme username
+            'username': 'testuser@example.com',
             'password': 'TestPassword123'
         })
         # Vérifie redirection
