@@ -93,7 +93,7 @@ class DemandeAdoptionAdmin(admin.ModelAdmin):
     def get_numero_demande(self, obj):
         """Numéro formaté"""
         return f"#{obj.id:05d}"
-    get_numero_demande.short_description = '🔢 N°'
+    get_numero_demande.short_description = 'N°'
     get_numero_demande.admin_order_field = 'id'
 
     def get_type_logement_emoji(self, obj):
@@ -106,27 +106,27 @@ class DemandeAdoptionAdmin(admin.ModelAdmin):
         }
         emoji = emoji_map.get(obj.type_logement, '❓')
         return f"{emoji} {obj.get_type_logement_display()}"
-    get_type_logement_emoji.short_description = '🏠 Logement'
+    get_type_logement_emoji.short_description = 'Logement'
 
     def get_date_demande(self, obj):
         """Date formatée simplement"""
         return obj.date_demande.strftime('%d/%m/%Y à %H:%M')
-    get_date_demande.short_description = '📅 Date de demande'
+    get_date_demande.short_description = 'Date de demande'
     get_date_demande.admin_order_field = 'date_demande'
 
     def get_statut_colored(self, obj):
         """Statut avec couleur"""
         couleurs = {
-            'EN_ATTENTE': ('background:#fff3cd;color:#856404;', '⏳ En attente'),
-            'ACCEPTEE': ('background:#d4edda;color:#155724;', '✅ Acceptée'),
-            'REFUSEE': ('background:#f8d7da;color:#721c24;', '❌ Refusée'),
+            'EN_ATTENTE': ('background:#fff3cd;color:#856404;', 'En attente'),
+            'ACCEPTEE': ('background:#d4edda;color:#155724;', 'Acceptée'),
+            'REFUSEE': ('background:#f8d7da;color:#721c24;', 'Refusée'),
         }
         style, texte = couleurs.get(obj.statut, ('', obj.get_statut_display()))
         return format_html(
             '<span style="padding:6px 12px;border-radius:6px;font-weight:600;display:inline-block;{}">{}</span>',
             style, texte
         )
-    get_statut_colored.short_description = '📊 Statut'
+    get_statut_colored.short_description = 'Statut'
     get_statut_colored.admin_order_field = 'statut'
 
     def get_boutons_action(self, obj):
@@ -135,17 +135,17 @@ class DemandeAdoptionAdmin(admin.ModelAdmin):
             return mark_safe(
                 f'<a href="{obj.pk}/accepter/" style="background:#28a745;color:white;padding:6px 12px;'
                 f'border-radius:6px;text-decoration:none;margin-right:5px;display:inline-block;'
-                f'font-size:12px;font-weight:600;">✅ Accepter</a>'
+                f'font-size:12px;font-weight:600;">Accepter</a>'
                 f'<a href="{obj.pk}/refuser/" style="background:#dc3545;color:white;padding:6px 12px;'
                 f'border-radius:6px;text-decoration:none;display:inline-block;'
-                f'font-size:12px;font-weight:600;">❌ Refuser</a>'
+                f'font-size:12px;font-weight:600;">Refuser</a>'
             )
         elif obj.statut == 'ACCEPTEE':
-            return mark_safe('<span style="color:#28a745;font-weight:600;">✅ Adoption validée</span>')
+            return mark_safe('<span style="color:#28a745;font-weight:600;">Adoption validée</span>')
         else:
-            return mark_safe('<span style="color:#dc3545;font-weight:600;">❌ Refusée</span>')
+            return mark_safe('<span style="color:#dc3545;font-weight:600;">Refusée</span>')
 
-    get_boutons_action.short_description = '⚡ Actions'
+    get_boutons_action.short_description = 'Actions'
 
 
 
