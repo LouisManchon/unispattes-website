@@ -93,9 +93,9 @@ class DemandeAdoption(models.Model):
 
     # STATUT DE LA DEMANDE
     STATUT_DEMANDE_CHOICES = [
-        ('EN_ATTENTE', '⏳ En attente'),
-        ('ACCEPTEE', '✅ Acceptée'),
-        ('REFUSEE', '❌ Refusée'),
+        ('EN_ATTENTE', 'En attente'),
+        ('ACCEPTEE', 'Acceptée'),
+        ('REFUSEE', 'Refusée'),
     ]
 
     # ========================================
