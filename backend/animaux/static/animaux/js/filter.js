@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 filter.js chargé');
 
     // ========== RÉCUPÉRATION DES ÉLÉMENTS ==========
     const searchInput = document.getElementById('search-name');
@@ -9,11 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnRechercher = document.querySelector('.btn-rechercher');
     const btnReinitialiser = document.querySelector('.btn-reinitialiser');
 
-    console.log('📦 Cartes trouvées:', animalCards.length);
 
     // ========== FONCTION DE FILTRAGE ==========
     function filtrerAnimaux() {
-        console.log('\n🔍 === FILTRAGE ===');
 
         // 1. Récupérer les valeurs
         const nomRecherche = searchInput.value.toLowerCase().trim();
@@ -26,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const sexeSelectionne = sexeRadio ? sexeRadio.value : 'tous';
         const ageSelectionne = ageRadio ? ageRadio.value : 'tous';
 
-        console.log('📊 Critères:', {nomRecherche, chienCoche, chatCoche, sexeSelectionne, ageSelectionne});
 
         // 2. Compteur
         let compteur = 0;
@@ -48,14 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (matchNom && matchEspece && matchSexe && matchAge) {
                 card.style.display = 'block';
                 compteur++;
-                console.log(`✅ ${nom} affiché`);
             } else {
                 card.style.display = 'none';
-                console.log(`❌ ${nom} masqué`);
             }
         });
-
-        console.log(`\n✅ ${compteur} animal(aux) affiché(s)\n`);
 
         // Message "aucun résultat"
         const grilleAnimaux = document.querySelector('.animaux-grid');
@@ -79,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btnRechercher) {
         btnRechercher.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log('🔍 Bouton Rechercher cliqué');
             filtrerAnimaux();
         });
     }
@@ -110,8 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (noResultMsg) {
                 noResultMsg.remove();
             }
-
-            console.log('✅ Filtres réinitialisés');
         });
     }
 
