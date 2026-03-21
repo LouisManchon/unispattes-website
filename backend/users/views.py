@@ -51,8 +51,3 @@ def deconnexion(request):
     logout(request)
     messages.success(request, 'Vous avez été déconnecté avec succès.')
     return redirect('animaux:accueil')
-
-@login_required
-def profil(request):
-    """Vue du profil utilisateur"""
-    return render(request, 'users/profil.html', {'user': request.user})

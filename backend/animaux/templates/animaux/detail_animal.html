@@ -160,7 +160,7 @@
                     <!-- DESCRIPTION / COMPORTEMENT -->
                     <div class="description-box">
                         <h2>À propos de {{ animal.nom }}</h2>
-                        <p>{{ animal.description|linebreaks }}</p>
+                        {{ animal.description|linebreaks }}
                     </div>
 
                     <!-- BOUTONS D'ACTION -->
@@ -200,43 +200,43 @@
                 {% csrf_token %}
 
                 <!-- Nom complet -->
-                <p>
+                <div>
                     <label for="{{ form.nom_complet.id_for_label }}" class="required">
                         {{ form.nom_complet.label }}
                     </label>
                     {{ form.nom_complet }}
                     {{ form.nom_complet.errors }}
-                </p>
+                </div>
 
                 <!-- Email -->
-                <p>
+                <div>
                     <label for="{{ form.email.id_for_label }}" class="required">
                         {{ form.email.label }}
                     </label>
                     {{ form.email }}
                     {{ form.email.errors }}
-                </p>
+                </div>
 
                 <!-- Téléphone -->
-                <p>
+                <div>
                     <label for="{{ form.telephone.id_for_label }}" class="required">
                         {{ form.telephone.label }}
                     </label>
                     {{ form.telephone }}
                     {{ form.telephone.errors }}
-                </p>
+                </div>
 
                 <!-- Adresse -->
-                <p>
+                <div>
                     <label for="{{ form.adresse.id_for_label }}">
                         {{ form.adresse.label }}
                     </label>
                     {{ form.adresse }}
                     {{ form.adresse.errors }}
-                </p>
+                </div>
 
                 <!-- TYPE DE LOGEMENT -->
-                <p>
+                <div>
                     <label class="required">{{ form.type_logement.label }}</label>
                     <div class="radio-buttons">
                         {% for choice_value, choice_label in form.type_logement.field.choices %}
@@ -249,11 +249,11 @@
                         {% endfor %}
                     </div>
                     {{ form.type_logement.errors }}
-                </p>
+                </div>
 
 
                 <!-- STATUT DU LOGEMENT -->
-                <p>
+                <div>
                     <label class="required">{{ form.statut_logement.label }}</label>
                     <div class="radio-buttons">
                         {% for choice_value, choice_label in form.statut_logement.field.choices %}
@@ -266,7 +266,7 @@
                         {% endfor %}
                     </div>
                     {{ form.statut_logement.errors }}
-                </p>
+                </div>
 
 
                 <!-- Autres animaux (Checkbox) -->
@@ -279,25 +279,25 @@
                 </div>
 
                 <!-- Détails autres animaux -->
-                <p>
+                <div>
                     <label for="{{ form.details_autres_animaux.id_for_label }}">
                         {{ form.details_autres_animaux.label }}
                     </label>
                     {{ form.details_autres_animaux }}
                     {{ form.details_autres_animaux.errors }}
-                </p>
+                </div>
 
                 <!-- Motivation -->
-                <p>
+                <div>
                     <label for="{{ form.motivation.id_for_label }}" class="required">
                         {{ form.motivation.label }}
                     </label>
                     {{ form.motivation }}
                     {{ form.motivation.errors }}
-                </p>
+                </div>
 
                 <!-- DISPONIBILITÉ -->
-                <p>
+                <div>
                     <label class="required">{{ form.disponibilite.label }}</label>
                     <div class="radio-buttons">
                         {% for choice_value, choice_label in form.disponibilite.field.choices %}
@@ -310,17 +310,17 @@
                         {% endfor %}
                     </div>
                     {{ form.disponibilite.errors }}
-                </p>
+                </div>
 
 
                 <!-- Précisions disponibilité -->
-                <p>
+                <div>
                     <label for="{{ form.precisions_disponibilite.id_for_label }}">
                         {{ form.precisions_disponibilite.label }}
                     </label>
                     {{ form.precisions_disponibilite }}
                     {{ form.precisions_disponibilite.errors }}
-                </p>
+                </div>
 
                 <button type="submit" class="btn-submit">
                     Envoyer ma demande
