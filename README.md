@@ -1,4 +1,4 @@
-# 🐾 Unis'Pattes — Application web complète
+# Unis'Pattes - Application web complète
 
 
 ## 📋 Présentation du projet
