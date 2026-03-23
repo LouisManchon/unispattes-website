@@ -135,7 +135,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # URL de redirection pour login_required
 LOGIN_URL = 'users:connexion'
 
-# ✅ Configuration Admin Interface
+# Configuration Admin Interface
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 SILENCED_SYSTEM_CHECKS = ['security.W019']
 SECURE_BROWSER_XSS_FILTER = True

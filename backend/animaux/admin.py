@@ -182,27 +182,27 @@ class DemandeAdoptionAdmin(admin.ModelAdmin):
     # FORMULAIRE DÉTAILLÉ
     # ========================================
     fieldsets = (
-        ('🔢 Identification', {
+        ('Identification', {
             'fields': ('get_numero_demande', 'animal', 'date_demande')
         }),
 
-        ('👤 Informations personnelles', {
+        ('Informations personnelles', {
             'fields': ('nom_complet', 'email', 'telephone', 'adresse')
         }),
 
-        ('🏠 Logement', {
+        ('Logement', {
             'fields': ('type_logement', 'statut_logement')
         }),
 
-        ('🐾 Expérience avec les animaux', {
+        ('Expérience avec les animaux', {
             'fields': ('a_autres_animaux', 'details_autres_animaux')
         }),
 
-        ('💭 Motivation et disponibilité', {
+        ('Motivation et disponibilité', {
             'fields': ('motivation', 'disponibilite', 'precisions_disponibilite')
         }),
 
-        ('📋 Statut et traitement', {
+        ('Statut et traitement', {
             'fields': ('statut', 'traitee', 'notes_admin'),
         }),
     )
