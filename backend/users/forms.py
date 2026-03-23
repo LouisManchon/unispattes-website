@@ -46,7 +46,7 @@ class InscriptionForm(UserCreationForm):
 
     class Meta:
         model = Utilisateur
-        # ⚠️ ON RETIRE 'username' - il sera auto-généré
+        # ON RETIRE 'username' - il sera auto-généré
         fields = ['email', 'first_name', 'last_name', 'password1', 'password2', 'telephone', 'adresse']
 
     def __init__(self, *args, **kwargs):
@@ -64,7 +64,7 @@ class InscriptionForm(UserCreationForm):
 
 
 class ConnexionForm(AuthenticationForm):
-    # ⚠️ username = en fait l'EMAIL (Django l'appelle toujours username)
+    # username = en fait l'EMAIL (Django l'appelle toujours username)
     username = forms.EmailField(
         label="Email",
         widget=forms.EmailInput(attrs={

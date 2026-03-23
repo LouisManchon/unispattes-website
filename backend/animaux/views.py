@@ -21,7 +21,7 @@ def detail_animal(request, id):
     """
     animal = get_object_or_404(Animal, id=id)
 
-    # ✅ SI L'UTILISATEUR SOUMET LE FORMULAIRE SANS ÊTRE CONNECTÉ
+    # SI L'UTILISATEUR SOUMET LE FORMULAIRE SANS ÊTRE CONNECTÉ
     if request.method == 'POST' and not request.user.is_authenticated:
         messages.warning(
             request,
@@ -37,7 +37,7 @@ def detail_animal(request, id):
             try:
                 demande = form.save(commit=False)
                 demande.animal = animal
-                demande.utilisateur = request.user  # ✅ Associe l'utilisateur connecté
+                demande.utilisateur = request.user  # Associe l'utilisateur connecté
                 demande.save()
                 messages.success(
                     request,

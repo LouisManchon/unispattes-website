@@ -156,7 +156,7 @@ class DemandeAdoptionAdmin(admin.ModelAdmin):
     # ========================================
     actions = ['accepter_demandes', 'refuser_demandes', 'remettre_en_attente']
 
-    @admin.action(description="✅ Accepter les demandes sélectionnées")
+    @admin.action(description="Accepter les demandes sélectionnées")
     def accepter_demandes(self, request, queryset):
         count = 0
         for demande in queryset.filter(statut='EN_ATTENTE'):
@@ -166,17 +166,17 @@ class DemandeAdoptionAdmin(admin.ModelAdmin):
             demande.animal.save()
             demande.save()
             count += 1
-        self.message_user(request, f"✅ {count} demande(s) acceptée(s). Animaux marqués comme indisponibles.", messages.SUCCESS)
+        self.message_user(request, f"{count} demande(s) acceptée(s). Animaux marqués comme indisponibles.", messages.SUCCESS)
 
-    @admin.action(description="❌ Refuser les demandes sélectionnées")
+    @admin.action(description="Refuser les demandes sélectionnées")
     def refuser_demandes(self, request, queryset):
         count = queryset.filter(statut='EN_ATTENTE').update(statut='REFUSEE', traitee=True)
-        self.message_user(request, f"❌ {count} demande(s) refusée(s).", messages.WARNING)
+        self.message_user(request, f"{count} demande(s) refusée(s).", messages.WARNING)
 
-    @admin.action(description="⏳ Remettre en attente")
+    @admin.action(description="Remettre en attente")
     def remettre_en_attente(self, request, queryset):
         count = queryset.update(statut='EN_ATTENTE', traitee=False)
-        self.message_user(request, f"⏳ {count} demande(s) remise(s) en attente.")
+        self.message_user(request, f"{count} demande(s) remise(s) en attente.")
 
     # ========================================
     # FORMULAIRE DÉTAILLÉ
@@ -219,49 +219,49 @@ class DemandeAdoptionAdmin(admin.ModelAdmin):
         return custom_urls + urls
 
     def accepter_demande(self, request, pk):
-        """✅ Accepter une demande"""
+        """Accepter une demande"""
         try:
             demande = get_object_or_404(DemandeAdoption, pk=pk)
 
-            # ✅ Vérifier que la demande est en attente
+            # Vérifier que la demande est en attente
             if demande.statut != 'EN_ATTENTE':
-                messages.warning(request, f"⚠️ Cette demande a déjà été traitée (statut : {demande.get_statut_display()}).")
+                messages.warning(request, f"Cette demande a déjà été traitée (statut : {demande.get_statut_display()}).")
                 return redirect('admin:animaux_demandeadoption_changelist')
 
-            # 🔥 NOUVEAU : Vérifier que l'animal est encore disponible
+            # Vérifier que l'animal est encore disponible
             if not demande.animal.disponible:
                 messages.error(
                     request,
-                    f"❌ Impossible d'accepter cette demande : {demande.animal.nom} a déjà été adopté !"
+                    f"Impossible d'accepter cette demande : {demande.animal.nom} a déjà été adopté !"
                 )
                 return redirect('admin:animaux_demandeadoption_changelist')
 
-            # ✅ Accepter la demande
+            # Accepter la demande
             demande.statut = 'ACCEPTEE'
             demande.traitee = True
             demande.save()
 
-            # ✅ Marquer l'animal comme indisponible
+            # Marquer l'animal comme indisponible
             demande.animal.disponible = False
             demande.animal.save()
 
             messages.success(
                 request,
-                f"✅ Demande #{demande.id:05d} acceptée ! {demande.animal.nom} est maintenant indisponible à l'adoption."
+                f"Demande #{demande.id:05d} acceptée ! {demande.animal.nom} est maintenant indisponible à l'adoption."
             )
 
         except Exception as e:
-            messages.error(request, f"❌ Erreur : {str(e)}")
+            messages.error(request, f"Erreur : {str(e)}")
 
         return redirect('admin:animaux_demandeadoption_changelist')
 
 
     def refuser_demande(self, request, pk):
-        """❌ Refuser une demande"""
+        """Refuser une demande"""
         demande = DemandeAdoption.objects.get(pk=pk)
         demande.statut = 'REFUSEE'
         demande.traitee = True
         demande.save()
 
-        messages.warning(request, f"❌ Demande de {demande.nom_complet} refusée.")
+        messages.warning(request, f"Demande de {demande.nom_complet} refusée.")
         return redirect('admin:animaux_demandeadoption_changelist')

@@ -8,21 +8,21 @@ class DemandeAdoptionForm(forms.ModelForm):
         choices=DemandeAdoption.TYPE_LOGEMENT_CHOICES,
         widget=forms.RadioSelect(attrs={'class': 'radio-buttons'}),
         required=True,
-        error_messages={'required': '⚠️ Veuillez sélectionner un type de logement.'}
+        error_messages={'required': 'Veuillez sélectionner un type de logement.'}
     )
 
     statut_logement = forms.ChoiceField(
         choices=DemandeAdoption.STATUT_LOGEMENT_CHOICES,
         widget=forms.RadioSelect(attrs={'class': 'radio-buttons'}),
         required=True,
-        error_messages={'required': '⚠️ Veuillez indiquer si vous êtes propriétaire ou locataire.'}
+        error_messages={'required': 'Veuillez indiquer si vous êtes propriétaire ou locataire.'}
     )
 
     disponibilite = forms.ChoiceField(
         choices=DemandeAdoption.CHOIX_DISPONIBILITE,
         widget=forms.RadioSelect(attrs={'class': 'radio-buttons'}),
         required=True,
-        error_messages={'required': '⚠️ Veuillez indiquer quand vous pouvez venir.'}
+        error_messages={'required': 'Veuillez indiquer quand vous pouvez venir.'}
     )
 
     class Meta:
@@ -90,19 +90,19 @@ class DemandeAdoptionForm(forms.ModelForm):
         """Valide que l'utilisateur a bien sélectionné un type de logement"""
         type_logement = self.cleaned_data.get('type_logement')
         if not type_logement:
-            raise forms.ValidationError("⚠️ Veuillez sélectionner un type de logement.")
+            raise forms.ValidationError("Veuillez sélectionner un type de logement.")
         return type_logement
 
     def clean_statut_logement(self):
         """Valide que l'utilisateur a bien sélectionné son statut"""
         statut_logement = self.cleaned_data.get('statut_logement')
         if not statut_logement:
-            raise forms.ValidationError("⚠️ Veuillez indiquer si vous êtes propriétaire ou locataire.")
+            raise forms.ValidationError("Veuillez indiquer si vous êtes propriétaire ou locataire.")
         return statut_logement
 
     def clean_disponibilite(self):
         """Valide que l'utilisateur a bien sélectionné ses disponibilités"""
         disponibilite = self.cleaned_data.get('disponibilite')
         if not disponibilite:
-            raise forms.ValidationError("⚠️ Veuillez indiquer quand vous pouvez venir.")
+            raise forms.ValidationError("Veuillez indiquer quand vous pouvez venir.")
         return disponibilite
