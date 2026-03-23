@@ -289,6 +289,6 @@ docker-compose exec backend python manage.py test users
 
 ## 👨‍💻 Auteur
 
-Projet réalisé dans le cadre de la formation **Développeur Web et Web Mobile** — RNCP37674 Niveau 5.
+Projet réalisé dans le cadre du diplôme **Développeur Web et Web Mobile** — RNCP37674 Niveau 5.
 
 Louis Manchon: <https://github.com/LouisManchon>
