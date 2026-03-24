@@ -120,7 +120,7 @@ body {
 }
 
 /* ===========================
-   👤 "Bonjour user" - STYLE COMME SUR L'ACCUEIL
+   "Bonjour user" - STYLE COMME SUR L'ACCUEIL
    =========================== */
 .nav-links li {
   display: flex;
@@ -204,7 +204,7 @@ body {
   background-color: #f5ddc4;
 }
 
-/* ✅ LAYOUT DESKTOP : Filtres (280px) + Grille (reste) */
+/* LAYOUT DESKTOP : Filtres (280px) + Grille (reste) */
 .content-wrapper {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -224,7 +224,7 @@ body {
   top: 120px;
 }
 
-/* ❌ HEADER ACCORDÉON (caché par défaut sur desktop) */
+/* HEADER ACCORDÉON (caché par défaut sur desktop) */
 .filtres-header {
   display: none;
 }
@@ -745,7 +745,7 @@ body {
     position: static;
   }
 
-  /* ✅ ACCORDÉON FILTRES MOBILE */
+  /* ACCORDÉON FILTRES MOBILE */
   .filtres-header {
     display: flex;
     justify-content: space-between;

@@ -125,7 +125,7 @@ body {
 }
 
 /* ===========================
-   👤 "Bonjour user" - STYLE COMME SUR L'ACCUEIL
+   "Bonjour user" - STYLE COMME SUR L'ACCUEIL
    =========================== */
 .nav-links li {
   display: flex;
@@ -972,13 +972,13 @@ select.error {
 ======================================== */
 @media (max-width: 1024px) {
 
-  /* 🍔 AFFICHE LE BURGER */
+  /* AFFICHE LE BURGER */
   .burger {
     display: flex;
     margin-left: auto;
   }
 
-  /* 📱 MENU LATÉRAL */
+  /* MENU LATÉRAL */
   .nav-links {
     position: fixed;
     right: -100%;
@@ -1000,12 +1000,12 @@ select.error {
     right: 0;
   }
 
-  /* ❌ DÉSACTIVE LE SOULIGNEMENT ANIMÉ EN MODE MOBILE */
+  /* DÉSACTIVE LE SOULIGNEMENT ANIMÉ EN MODE MOBILE */
   .nav-links a::after {
     display: none;
   }
 
-  /* ✖️ ANIMATION DU BURGER EN CROIX */
+  /* ANIMATION DU BURGER EN CROIX */
   .burger.toggle .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
   }
@@ -1018,7 +1018,7 @@ select.error {
     transform: rotate(45deg) translate(-5px, -6px);
   }
 
-  /* 👤 USER INFO EN COLONNE */
+  /* USER INFO EN COLONNE */
   .user-info {
     flex-direction: column;
     align-items: center;
@@ -1026,7 +1026,7 @@ select.error {
     width: 100%;
   }
 
-  /* 📐 AJUSTEMENTS DES GRIDS */
+  /* AJUSTEMENTS DES GRIDS */
   .animaux-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
@@ -1051,7 +1051,7 @@ select.error {
 ======================================== */
 @media (max-width: 768px) {
 
-  /* 📏 LOGO PLUS PETIT */
+  /* LOGO PLUS PETIT */
   .logo-icon {
     font-size: 1.5rem;
   }
@@ -1060,7 +1060,7 @@ select.error {
     font-size: 1.2rem;
   }
 
-  /* 🏞️ HERO */
+  /* HERO */
   .hero {
     height: 600px;
   }
@@ -1079,7 +1079,7 @@ select.error {
     font-size: 1rem;
   }
 
-  /* 📖 À PROPOS */
+  /* À PROPOS */
   .about-grid {
     grid-template-columns: 1fr;
     gap: 50px;
@@ -1101,19 +1101,19 @@ select.error {
     justify-content: center;
   }
 
-  /* 🐾 ANIMAUX EN 1 COLONNE */
+  /* ANIMAUX EN 1 COLONNE */
   .animaux-grid {
     grid-template-columns: 1fr;
     gap: 50px;
   }
 
-  /* 📋 ÉTAPES EN 1 COLONNE */
+  /* ÉTAPES EN 1 COLONNE */
   .etapes-grid {
     grid-template-columns: 1fr;
     gap: 60px;
   }
 
-  /* 📧 FOOTER EN 1 COLONNE */
+  /* FOOTER EN 1 COLONNE */
   .footer-content {
     grid-template-columns: 1fr;
     gap: 40px;

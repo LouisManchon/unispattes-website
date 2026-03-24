@@ -775,14 +775,14 @@ body {
 ======================================== */
 @media (max-width: 1024px) {
 
-  /* 🍔 AFFICHE LE BURGER */
+  /* AFFICHE LE BURGER */
   .burger {
     display: flex !important;
     margin-left: auto;
     z-index: 2000;
   }
 
-  /* 📱 MENU LATÉRAL */
+  /* MENU LATÉRAL */
   .nav-links {
     position: fixed;
     right: -100%;
@@ -805,12 +805,12 @@ body {
     right: 0 !important;
   }
 
-  /* ❌ DÉSACTIVE LE SOULIGNEMENT ANIMÉ */
+  /*  DÉSACTIVE LE SOULIGNEMENT ANIMÉ */
   .nav-links a::after {
     display: none;
   }
 
-  /* ✖️ ANIMATION DU BURGER EN CROIX */
+  /* ANIMATION DU BURGER EN CROIX */
   .burger.toggle .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
   }
@@ -823,25 +823,25 @@ body {
     transform: rotate(45deg) translate(-5px, -6px);
   }
 
-  /* 📐 COLONNES EN 2 COLONNES POUR TABLETTE */
+  /* COLONNES EN 2 COLONNES POUR TABLETTE */
   .colonnes-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
   }
 
-  /* 🧑‍🤝‍🧑 ÉQUIPE EN 2 COLONNES */
+  /* ÉQUIPE EN 2 COLONNES */
   .equipe-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
   }
 
-  /* 📊 CHIFFRES EN 2 COLONNES */
+  /* CHIFFRES EN 2 COLONNES */
   .chiffres-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
 
-  /* 📧 FOOTER EN 2 COLONNES */
+  /* FOOTER EN 2 COLONNES */
   .footer-content {
     grid-template-columns: 1fr 1fr;
   }
@@ -851,7 +851,7 @@ body {
   }
 }
 
-/* 🎯 CENTRAGE DU BOUTON CTA */
+/* CENTRAGE DU BOUTON CTA */
   .cta-buttons {
     display: flex !important;
     justify-content: center !important;
@@ -865,7 +865,7 @@ body {
 ======================================== */
 @media (max-width: 768px) {
 
-  /* 📏 LOGO PLUS PETIT */
+  /* LOGO PLUS PETIT */
   .logo-icon {
     font-size: 1.5rem;
   }
@@ -874,7 +874,7 @@ body {
     font-size: 1.2rem;
   }
 
-  /* 🏞️ HERO */
+  /*  HERO */
   .hero-apropos {
     padding: 80px 20px 60px 20px;
   }
@@ -887,7 +887,7 @@ body {
     font-size: 1rem;
   }
 
-  /* 📐 COLONNES EN 1 COLONNE */
+  /* COLONNES EN 1 COLONNE */
   .apropos-colonnes {
     padding: 60px 20px;
   }
@@ -909,7 +909,7 @@ body {
     font-size: 1rem;
   }
 
-  /* 🧑‍🤝‍🧑 ÉQUIPE EN 1 COLONNE */
+  /* ÉQUIPE EN 1 COLONNE */
   .equipe-section {
     padding: 60px 20px;
   }
@@ -944,7 +944,7 @@ body {
     font-size: 0.9rem;
   }
 
-  /* 📊 CHIFFRES EN 2 COLONNES (reste inchangé mobile) */
+  /* CHIFFRES EN 2 COLONNES (reste inchangé mobile) */
   .chiffres-cles {
     padding: 60px 20px;
   }
@@ -971,7 +971,7 @@ body {
     font-size: 0.95rem;
   }
 
-  /* 🎯 CTA FINAL */
+  /* CTA FINAL */
   .cta-final {
     padding: 60px 20px;
   }
@@ -996,7 +996,7 @@ body {
     justify-content: center;
   }
 
-  /* 📧 FOOTER EN 1 COLONNE */
+  /* FOOTER EN 1 COLONNE */
   .main-footer {
     padding: 60px 0 0 0;
   }

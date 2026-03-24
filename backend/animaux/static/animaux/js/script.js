@@ -1,5 +1,5 @@
 // =====================================================
-// 📂 ACCORDÉON FILTRES (TOUS APPAREILS)
+// ACCORDÉON FILTRES (TOUS APPAREILS)
 // =====================================================
 const filtresHeader = document.querySelector('.filtres-header');
 const toggleBtn = document.querySelector('.toggle-filtres');

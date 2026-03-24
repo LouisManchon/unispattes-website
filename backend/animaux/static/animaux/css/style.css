@@ -119,7 +119,7 @@ body {
 }
 
 /* ===========================
-   👤 "Bonjour Jean" - STYLE COMME LES AUTRES
+   "Bonjour Jean" - STYLE COMME LES AUTRES
    =========================== */
 .user-greeting {
   color: #b95e3a !important;
@@ -157,7 +157,7 @@ body {
 }
 
 /* ===========================
-   👤 ICÔNE COMPTE (non connecté)
+   ICÔNE COMPTE (non connecté)
    =========================== */
 .account-icon {
   display: flex;
@@ -400,7 +400,7 @@ body {
 }
 
 .btn-adoption {
-  display: block;              /* ✅ Prend toute la largeur disponible */
+  display: block;              /* Prend toute la largeur disponible */
   background-color: #b95e3a;
   color: white;
   padding: 12px 35px;
@@ -410,9 +410,9 @@ body {
   font-size: 1rem;
   font-weight: 700;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  width: 280px;                /* ✅ Largeur fixe identique à la carte */
+  width: 280px;                /* Largeur fixe identique à la carte */
   text-align: center;
-  box-sizing: border-box;      /* ✅ Inclut le padding dans la largeur */
+  box-sizing: border-box;      /* Inclut le padding dans la largeur */
 }
 
 .btn-adoption:hover {
@@ -690,13 +690,13 @@ body {
 ======================================== */
 @media (max-width: 1024px) {
 
-  /* 🍔 AFFICHE LE BURGER */
+  /* AFFICHE LE BURGER */
   .burger {
     display: flex;
     margin-left: auto;
   }
 
-  /* 📱 MENU LATÉRAL */
+  /* MENU LATÉRAL */
   .nav-links {
     position: fixed;
     right: -100%;
@@ -718,12 +718,12 @@ body {
     right: 0;
   }
 
-  /* ❌ DÉSACTIVE LE SOULIGNEMENT ANIMÉ EN MODE MOBILE */
+  /* DÉSACTIVE LE SOULIGNEMENT ANIMÉ EN MODE MOBILE */
   .nav-links a::after {
     display: none;
   }
 
-  /* ✖️ ANIMATION DU BURGER EN CROIX */
+  /* ANIMATION DU BURGER EN CROIX */
   .burger.toggle .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
   }
@@ -736,7 +736,7 @@ body {
     transform: rotate(45deg) translate(-5px, -6px);
   }
 
-  /* 👤 USER INFO EN COLONNE */
+  /* USER INFO EN COLONNE */
   .user-info {
     flex-direction: column;
     align-items: center;
@@ -744,7 +744,7 @@ body {
     width: 100%;
   }
 
-  /* 📐 AJUSTEMENTS DES GRIDS */
+  /* AJUSTEMENTS DES GRIDS */
   .animaux-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
@@ -769,7 +769,7 @@ body {
 ======================================== */
 @media (max-width: 768px) {
 
-  /* 📏 LOGO PLUS PETIT */
+  /* LOGO PLUS PETIT */
   .logo-icon {
     font-size: 1.5rem;
   }
@@ -778,7 +778,7 @@ body {
     font-size: 1.2rem;
   }
 
-  /* 🏞️ HERO */
+  /* HERO */
   .hero {
     height: 600px;
   }
@@ -797,7 +797,7 @@ body {
     font-size: 1rem;
   }
 
-  /* 📖 À PROPOS */
+  /* À PROPOS */
   .about-grid {
     grid-template-columns: 1fr;
     gap: 50px;
@@ -819,19 +819,19 @@ body {
     justify-content: center;
   }
 
-  /* 🐾 ANIMAUX EN 1 COLONNE */
+  /* ANIMAUX EN 1 COLONNE */
   .animaux-grid {
     grid-template-columns: 1fr;
     gap: 50px;
   }
 
-  /* 📋 ÉTAPES EN 1 COLONNE */
+  /* ÉTAPES EN 1 COLONNE */
   .etapes-grid {
     grid-template-columns: 1fr;
     gap: 60px;
   }
 
-  /* 📧 FOOTER EN 1 COLONNE */
+  /* FOOTER EN 1 COLONNE */
   .footer-content {
     grid-template-columns: 1fr;
     gap: 40px;

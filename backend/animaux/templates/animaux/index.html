@@ -24,7 +24,7 @@
                 <li><a href="{% url 'animaux:accueil' %}#contact">Contact</a></li>
 
                 {% if user.is_authenticated %}
-                <!-- ✅ UTILISATEUR CONNECTÉ -->
+                <!-- TILISATEUR CONNECTÉ -->
                     <li>
                         <span class="user-greeting">
                             Bonjour {{ user.first_name|default:user.email }}
@@ -36,7 +36,7 @@
                         </a>
                     </li>
                 {% else %}
-                    <!-- ❌ UTILISATEUR NON CONNECTÉ -->
+                    <!-- UTILISATEUR NON CONNECTÉ -->
                     <li>
                         <a href="{% url 'users:connexion' %}?next={{ request.path }}" class="account-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
